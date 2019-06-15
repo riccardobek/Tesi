@@ -121,12 +121,21 @@ processi. Per fare questo fa affidamento al ciclo PDCA, ovvero l'insieme delle s
 	\item \textbf{C}heck:
 	\item \textbf{A}ct:
 \end{itemize}
-Durante lo stage, ho notato che l'azienda è adotta questa strategia principalmente nel processo di sviluppo mirando ad ottenere un prodotto efficiente ed efficacie. Negli altri processi aziendali invece, quale ad esempio la documentazione, è ancora un pò arretrata. La documentazione realizzata non è sempre completa. Viene preferito affidarsi ai mock\-up ed ai documenti che descrivono le caratteristiche tecniche e grafiche del prodotto. Quando l'ideale sarebbe indagare sì su questi punti, ma in maniera più dettagliata fin dall'inizio. Infatti, nel corso del progetto mi sono trovato diverse volte a chiedere informazioni al tutor aziendale (responsabile di progetto), in merito a delle funzionalità non espresse nei documenti redatti e a me consegnati.  
+Durante lo stage, ho notato che l'azienda adotta questa strategia principalmente nel processo di sviluppo mirando ad ottenere un prodotto efficiente ed efficacie. Negli altri processi aziendali invece, quale ad esempio la documentazione, è ancora un pò arretrata. La documentazione realizzata non è sempre completa. Viene preferito affidarsi ai mock\-up ed ai documenti che descrivono le caratteristiche tecniche e grafiche del prodotto. Quando l'ideale sarebbe indagare sì su questi punti, ma in maniera più dettagliata fin dall'inizio. Infatti, nel corso del progetto mi sono trovato diverse volte a chiedere informazioni al tutor aziendale (responsabile di progetto), in merito a delle funzionalità non espresse nei documenti redatti e a me consegnati.  
 
 \subsection{Metodologia agile}
 \label{cap1:Metodologia agile}
 
-L'azienda
+L'azienda nello sviluppo delle applicazioni adotta la metodologia agile. Questo metodo operativo permette una maggiore libertà rispetto ad altri tipi quali sequenziale, incrementale o a spirale. I punti fondamentali sono:
+\begin{itemize}
+	\item privilegiare la realizzazione del software alla creazione di documentazione;
+	\item collaborare con il cliente invece di dedicarsi a contrattazioni;
+	\item essere pronti a reagire ad ogni situazione invece di avere un piano di gestione dei rischi.
+\end{itemize}
+\azienda\ ha deciso di adottare questo metodo lavorativo per i sui prodotti perché hanno osservato come nella realtà lavorativa le aziende vorrebbero avere a disposizione prodotti efficienti ed efficaci in tempi molto brevi. 
+Inoltre, la scelta è ricaduta su questa tipologia per un motivo molto importante secondo l'azienda: conoscere i clienti, il mercato e creare un rapporto duraturo di fiducia. 
+
+Questo metodo si concretizza con degli incontri la cui scadenza è variabile, settimanale, bisettimanale o mensili, con i clienti. Durante gli incontri si raccolgono task, migliorie da apportare ai progetti o addirittura ci si ferma dal cliente per realizzare nuove funzionalità e chiedere informazioni in maniera immediata. Così facendo la comunicazione è rapida, le mail sono ridotte ed è molto più facile comprendere le necessità delle aziende cliente osservandola dall'intero.
 
 \newpage
 
@@ -165,12 +174,27 @@ Grazie a questa applicazione viene calcolato il compenso e il consuntivo del pro
 \subsection{Documentazione}
 \label{cap1:Documentazione}
 
-parlare dei documenti che ho dovuto redigere e dei documenti redatti per prendere accordi con i diversi clienti.
+L'azienda sebbene abbia deciso di adottare un modello agile non è priva di documenti. Quando deve realizzare un progetto il primo passo è quello di redigere un Piano di progetto e POC documentale completo delle specifiche che il prodotto finale dovrà avere. 
+Il motivo per cui l'azienda dà molta importanza al POC è che, con un documento nel quale è riportato la struttura del database e la grafica pressapochista che il progetto dovrà avere, permette di realizzare un prodotto completo in 3/4 settimane. 
+La documentazione è tenuta interamente su OneDrive For Business. Ogni documento ha una sua collocazione da rispettare. 
 
 \subsection{Sistema di versionamento}
 \label{cap1:Sistema di versionamento}
 
-parlare delle funionalità di teamworks e di IDManager
+Per il versionamento e il salvataggio dei File prodotti durante la realizzazione dei progetti è previsto l'utilizzo di una repository creata dal Project Manager su un'applicazione basata sempre su InDe, TeamWorks. Successivamente, vengono forniti ai dipendenti scelti nella realizzazione di uno specifico progetto i permessi di: scrittura, lettura ed eliminazione.
+Tale applicazione web risulta essere molto simile a GitHub, tuttavia è molto più intuitivo e semplice perché le funzionalità permesse che sono controllare informazioni relative ai commit, tornare indietro di versione (rollback), scaricare progetti (Download) e creare progetti derivati (Fork) premendo unicamente dei pulsanti.
+
+Ciascun progetto deve essere soggetto a versionamento perciò chiunque lo utilizza ha una visione chiara e dettagliata della sua storia e delle sue modifche. Ad ogni task deve corrispondere una versione. Nelle versioni viene applicato il segeunte formalismo:
+\begin{center}
+	X.Y.Z
+\end{center}
+Dove X,Y,Z sono numeri incrementali da 0 a infinito. 
+Z indica i singoli task e bug individuati ed implementati, Y rappresenta la implementazione di nuove funzionalità rilasciate per la fase di collaudo e X quando il progetto ha superato il collaudo e diventa operativo.  
+
+\subsubsection{Sistema di pubblicazione}
+La pubblicazione presso \azienda\ corrisponde al rilascio dell'applicazione all'azienda cliente per effettuare dei test. Il collaudo viene effettuato anche internamente all'azienda, ma questa doppio controllo permette di realizzare applicazioni corrette che non necessitino di eccessive manutenzioni di tipo correttivo. 
+Il sistema adottato dall'azienda per pubblicare il software è IDManager, anche essa una applicazione web di InDe, la quale permette di modificare i riferimenti del database cambiando la stringa di connessione del progetto e permette di caricare unicamente le differenze tra la versione precedente e quella attuale.
+
 
 \subsection{Ambiente di sviluppo}
 \label{cap1:Ambiente di sviluppo}
