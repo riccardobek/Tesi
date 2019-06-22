@@ -1,12 +1,159 @@
 \chapter{Stage}
 \textit{Questo capitolo spiega il motivo per cui l'azienda ha deciso di pendere uno stagista e l'utilità che potrà avere nella realizzazione del progetto. Inoltre, vengono presentati i vincoli imposti in sede di pianificazione dello stage e gli obiettivi che ci si aspetta vengano realizzati.}
 
-\section{Azienda e stage}
-\section{Il progetto}
-\subsection{Progetto}
+\section{Vantaggi dell'azienda}
+Tepui trae diversi vantaggi dall'attività di stage curricolare organizzata presso la sede di Castelfranco Veneto.\\
+
+In primo luogo, l'aumento della forza lavoro. Introduzione di un nuovo membro nel team di sviluppo ha permesso all'azienda di redistribuire il carico di lavoro in modo da implementare altri progetti in cantiere e di incrementare i servizi di consulenza. Inoltre, un punto di vista ulteriore da un utente esterno ha permesso all'azienda di individuare nuove funzionalità di Instant Developer rilasciate dalla casa produttrice.
+Un esempio di nuova funzionalità è stata la realizzazione del caricamento immagini senza l'ausilio di informazioni di header in fase di upload e la possibilità di caricare i file in una cartella specifica temporanea modificando dei comandi preimpostati dall'applicazione.
+\\
+
+In secondo luogo, ha permesso all'azienda di apprendere un metodo di implementazione del codice ordinato attraverso la catalogazione offerta da InDe che dà la possibilità di includere parti codice in cartelle e sottocartelle scrivendo a commento la loro funzionalità in modo che il codice sia più facile da capire.
+\\
+
+In terzo luogo, il costo di uno stagista è stato minimale ed ha permesso loro di esplorare nuove funzionalità risparmiando. Essendo ancora un'azienda giovane il poter conoscere e migliorare la propria operatività a prezzi minimi è considerato un ottima occasione. 
+
+
+\section{Presentazione del progetto}
+In questa sezione verranno esposte le informazioni di base relative al progetto da realizzare in quanto alcune informazioni sono già disponibili, tuttavia entreremo nel dettaglio del progetto nel capitolo 3 quando andremo a parlare dell'analisi dei requisiti.
+
+\subsection{Visualizzazione prodotti}
+\subsection{Visualizzazione dettaglio prodotto}
+\subsection{Inserimento attraverso modali}
+\subsection{Gestione delle configurazioni}
+\subsection{Realizzazione di una componente simile alla RTC}
+\subsection{Altri interventi}
+
+%\subsection{Progetto}
+%Il progetto da affrontare consiste nella realizzazione del lato amministrativo di un catalogo.
+%Durante l'intera durata dello stage si dovranno affrontare i seguenti tre stati di avanzamento: Analisi dei requisiti, Progettazione logica ed architetturale ed Implementazione.
+%In questo applicativo deve essere possibile leggere dal database tutte le informazioni dei prodotti ed entrare nel dettaglio di ciascuno di questi per poi poter apportare delle modifiche ove necessario.
+%Inoltre, deve essere possibile caricare immagini e la gestione dell'intera componente deve essere in lingua, ovvero nell'inserimento dei dati bisogna creare delle differenze tra i dati di una lingua rispetto a quelli di un'altra. 
+%Alla base della realizzazione del progetto è richiesto la massima espandibilità e la possibilità di mantenere il codice con il minimo sforzo. Per questo motivo è stato chiesto di adottare le conoscenze di Programmazione ad oggetti nella realizzazione del progetto.
+
 \subsection{Obiettivi}
+Gli obiettivi concordati nel piano di lavoro sono stati suddivisi in tre categorie: obbligatori, desiderabili e facoltativi. L'azienda ha espresso la richiesta che gli obbligatori siano completati, mentre per i desiderabili almeno due dei tre indicati siano portati a termine. \\
+ 
+ I vincoli sono i seguenti:
+\begin{itemize}
+	\item Obbligatori
+	\begin{itemize}
+		\item \underline{\textit{O01}}: Apprendimento della piattaforma Instant Developer;
+		\item \underline{\textit{O02}}: Test delle funzionalità implementate e rilascio;
+		\item \underline{\textit{O03}}: Utilizzo di Microsoft SQL Server.
+	\end{itemize}
+	
+	\item Desiderabili 
+	\begin{itemize}
+		\item \underline{\textit{D01}}: Gestione di progetto;
+		\item \underline{\textit{D02}}: Comunicazione con il cliente;
+		\item \underline{\textit{D03}}: Scrittura delle procedure T-SQL.
+	\end{itemize}
+	
+	\item Facoltativi
+	\begin{itemize}
+		\item \underline{\textit{F01}}: Autonomia a risolvere nuove problematiche.
+	\end{itemize} 
+\end{itemize}
+
+
 \section{I vincoli}
 \subsection{Vincoli temporali}
+Lo stage ha una durata prevista di 310 ore complessive, distribuite in 8 settimane da 40 ore lavorative ciascuna, dal 13 Maggio 2019 al 6 Luglio 2019. L'orario di lavoro concordato con il tutor aziendale è stato dal Lunedì al Venerdì dalle 09:00 alle 18:30, con 1 ora di pausa pranzo. Prima dell'inizio dello stage è stato redatto un piano di lavoro con una scansione temporale delle attività con granularità settimanale così definita:
+\begin{itemize}
+	
+	\item \textbf{Prima Settimana - Formazione (40 ore)}
+	\begin{itemize}
+		\item Visione dei video formativi di Instant Developer;
+		\item Implementazione di quanto proposto nella fase di formazione;
+		\item Interazione con il team e i colleghi per affrontare eventuali problematiche.
+		
+	\end{itemize}
+	\item \textbf{Seconda Settimana - Conclusione della fase formativa ed inizio gestione di progetto (40 ore)} 
+	\begin{itemize}
+		\item Studio di SQL Server ed esercitazioni sull'utilizzo adottando i database esistenti;
+		\item Realizzazione di un documento con le proprie considerazioni sul metodo di formazione;
+		\item Presa visione dell'infrastruttura esistente su cui si andrà a lavorare; 
+		\item Incontro con il cliente per discutere i requisiti e le richieste relative al software da realizzare.
+	\end{itemize}
+	
+	\item \textbf{Terza Settimana - Inizio sviluppo back-end della componente (40 ore)} 
+	\begin{itemize}
+		\item Comprensione del problema e realizzazione di una bozza delle tabelle da creare al fine di non compromettere il sistema preesistente e integrare quello nuovo;
+		\item Pianificazione delle settimane in cui si andrà a realizzare il progetto e tempistiche stimate per la sua completa realizzazione;
+		\item Implementazione delle tabelle necessarie allo sviluppo del software;
+		\item Redazione dei documenti relativi al progetto che si sta per realizzare.
+	\end{itemize}
+	
+	\item \textbf{Quarta Settimana - Implementazione delle componenti di base del progetto  (40 ore)} 
+	\begin{itemize}
+		\item Realizzazione delle classi sulla base delle tabelle ideate;
+		\item Redazione della documentazione tecnica che spieghi le scelte adottate;
+		\item Creazione delle schermate basate sugli oggetti ideati;
+		\item SAL (Stato avanzamento lavori) presso il cliente.
+	\end{itemize}
+	
+	
+	\item \textbf{Quinta Settimana - Implementazione degli eventi del progetto (40 ore)} 
+	\begin{itemize}
+		\item Implementazione degli eventi di caricamento e salvataggio dei dati;
+		\item Realizzazione della documentazione relativa ad ogni singolo metodo realizzato.
+	\end{itemize}
+	
+	
+	\item \textbf{Sesta Settimana - Realizzazione delle altre componenti del progetto (40 ore)} 
+	\begin{itemize}
+		\item Test sulle componenti realizzate;
+		\item Creazione degli altri oggetti e delle altre schermate da realizzare;
+		\item Realizzazione delle pagine di upload delle immagini e dei file;
+		\item SAL (Stato avanzamento lavori) presso il cliente.
+	\end{itemize}
+	
+	
+	\item \textbf{Settima Settimana - Verifica, Validazione e Collaudo (40 ore)} 
+	\begin{itemize}
+		\item Verifica del corretto funzionamento delle componenti introdotte;
+		\item Realizzazione della documentazione relativa alle altre classi;
+		\item Integrazione della sezione Catalogo nel software preesistente;
+		\item Collaudo;
+	\end{itemize}
+	
+	
+	
+	\item \textbf{Ottava Settimana - Rilascio e Collaudo (30 ore)} 
+	\begin{itemize}
+		\item Ultime operazioni di test sul software appena rilasciato;
+		\item Roll out del progetto;
+		\item Gestione delle eventuali richieste da parte del cliente.
+	\end{itemize}
+\end{itemize}
+
+
+
 \subsection{Vincoli metodologici}
+In accordo con il tutor aziendale, lo stage si è svolto presso la sede dell'azienda. Questa scelta è stata fatta principalmente per due motivi: 
+\begin{itemize}
+	\item Agevolare la comprensione, da parte dello stagista, delle dinamiche aziendali e l’interazione con il proponente del progetto; 
+	\item Favorire il confronto tra stagista, team e tutor aziendale.
+\end{itemize}
+A seguito dei servizi di consulenza offerti dall'azienda, nella seconda metà dello stage, la comunicazione con il tutor è stata meno constante ed in previsione di ciò si è adottata la politica di individuazione ad inizio settimana dei task da sviluppare e ad ogni problema o implementazione completata una comunicazione nel canale Teams predisposto.
+
+Per l'intera durata dello stage, Tepui ha richiesto che lo stagista redigesse delle brevi relazioni, descrivendo le problematiche affrontate, le scelte adoperate e il risultato ottenuto. Tali relazioni, fungeranno da materiale ausiliario per migliorare la loro gestione di stagisti.
+
+Infine, é stato posto come obbligo che tutta la documentazione rimanesse in una cartella OneDrive e che ogni singola operazione svolta venisse indicata su iDo, la piattaforma con la quale riescono ad indicare le ore a consuntivo svolte per la realizzazione di ogni modulo.
+
+
 \subsection{Vincoli tecnologici}
-\section{Gli obiettivi personali}
+adottare instant developer, teams e iDo nel quale indicare le ore impiegate per la realizzazione del progetto e dei task ad esso annessi.
+
+
+\section{Scelta e obiettivi personali}
+La scelta di iniziare lo stage presso Tepui è nata dal fatto che alcuni studenti universitari della magistrale hanno iniziato a lavorare presso questa struttura. Inoltre, l'idea di interfacciarmi con il mondo aziendale prendendo in mano la gestione di dati sensibili e la possibilità di creare un gestionale rientra perfettamente nel ruolo lavorativo da me ricercato. Dopo aver studiato economia presso l'Istituto Tecnico Commerciale Statale P.F. Calvi ed informatica presso l'Università di Padova, trovare un modno lavorativo che concilia i due mondi mi sembra un buon completamento dei miei studi fino a questo momento.\\
+
+Gli obiettivi che mi sono imposto di raggiungere a livello personale oltre a quelli concordati con l'azienda sono: 
+\begin{itemize}
+	\item Accrescere le conoscenze in merito al mondo RAD e Data Warehouse;
+	\item Migliorare le capacità di realizzazione di applicazioni seguendo il metodo Bottom-Up;
+	\item Apprendere come interfacciarmi con i clienti;
+	\item Migliorare le mie capacità di Problem Solving.
+\end{itemize}
