@@ -15,14 +15,54 @@ In terzo luogo, il costo di uno stagista è stato minimale ed ha permesso loro d
 
 
 \section{Presentazione del progetto}
-In questa sezione verranno esposte le informazioni di base relative al progetto da realizzare in quanto alcune informazioni sono già disponibili, tuttavia entreremo nel dettaglio del progetto nel capitolo 3 quando andremo a parlare dell'analisi dei requisiti.
+In questa sezione verranno esposte le informazioni di base relative al progetto da realizzare in quanto alcune informazioni sono già disponibili, tuttavia entreremo nel dettaglio del progetto nel capitolo 3.
 
 \subsection{Visualizzazione prodotti}
+Il progetto da realizzare prevede una schermata nella quale vengano riportati tutti i prodotti ed alcune delle informazioni più importanti tra cui codice identificativo, nome breve del prodotto e a quali famiglie di prodotti esso appartiene. In questa videata è richiesta la presenza delle seguenti operazioni: ricerca, cancellazione, inserimento e dettaglio.
+Per quanto riguarda l'inserimento esso può avvenire direttamente nell'elenco prodotti indicando gruppo di appartenenza, codice e nome breve.
+Entrando nel dettaglio invece, è richiesta l'apertura di una seconda schermata riempita con i contenuti del prodotto presenti nel database, è possibile gestire le informazioni che si desiderano presentare nella pagina web.
+Un'altra operazione a cui bisogna prestare attenzione è la cancellazione di un prodotto. Il cliente ha chiesto espressamente che questa cancellazione sia unicamente logica del prodotto fatta eccezione alle informazioni interne che potranno essere cancellate: tag, specifiche tecniche del prodotto, immagini.
+
 \subsection{Visualizzazione dettaglio prodotto}
+La visualizzazione dettaglio prodotto rappresenta il centro del progetto. In questa schermata devono essere implementate diverse funzionalità che permettono di gestire al meglio l'inserimento e l'aggiornamento delle informazioni di un articolo. Fondamentale è nella schermata avere un'unico metodo di salvataggio e dei controlli specifici che creino unicamente i record necessari. 
+Le informazioni che bisogna essere in grado di gestire sono le seguenti:
+\begin{itemize}
+	\item Nome esteso, descrizione ed informazioni;
+	\item Inserimento tag;
+	\item Inserimento immagine principale;
+	\item Inserimento video;
+	\item Inserimento Titolo (immagine);
+	\item Inserimento immagine/i 360, ovvero la creazione di una galleria di immagini da mostrare;
+	\item Informazioni aggiuntive che possono essere create, modificate e cancellate da una schermata a parte.
+\end{itemize}
+
 \subsection{Inserimento attraverso modali}
+Gli inserimenti delle immagini, video o delle informazioni aggiuntive deve avvenire attraverso delle modali. Creando quindi una schermata dedicata per ogni genere di informazione da passare che dalle specifiche sono le seguenti:
+\begin{itemize}
+	\item Numeri;
+	\item Liste valori;
+	\item Stringhe;
+	\item Date;
+	\item Booleani;
+	\item Multi-selezione;
+	\item URL;
+	\item Email;
+	\item Telefono;
+	\item File;
+	\item Immagine;
+	\item Multi-File;
+	\item Immagini 360;
+\end{itemize}
+
 \subsection{Gestione delle configurazioni}
-\subsection{Realizzazione di una componente simile alla RTC}
+Le informazioni che devono poter essere aggiunte ad un prodotto hanno dei record preimpostati non cancellabili. Inoltre con questa schermata nasce l'intento di poter creare tipi di informazioni aggiuntive a discrezione dell'utente finale.
+Nell'inserimento dell'informazione da gestire è necessario limitare l'utente con i tipi indicati nella lista indicata nelle modali.
+
+\subsection{Gestione delle traduzioni}
+Al termine del progetto è richiesto di individuare un metodo adeguato per la gestione delle traduzioni dei prodotti in lingue differenti dall'italiano. Studio dell'eventuale utilizzo di una componente RTC presente su InDe con una licenza da acquistare.
+
 \subsection{Altri interventi}
+Infine, oltre alla realizzazione del progetto, l'azienda per rendere lo stage vicino alla realtà che deve affrontare ogni giorno ha chiesto di essere disponibile e pronto a fornire supporto in questioni esterne al progetto che possono verificarsi.
 
 %\subsection{Progetto}
 %Il progetto da affrontare consiste nella realizzazione del lato amministrativo di un catalogo.
@@ -34,7 +74,7 @@ In questa sezione verranno esposte le informazioni di base relative al progetto 
 \subsection{Obiettivi}
 Gli obiettivi concordati nel piano di lavoro sono stati suddivisi in tre categorie: obbligatori, desiderabili e facoltativi. L'azienda ha espresso la richiesta che gli obbligatori siano completati, mentre per i desiderabili almeno due dei tre indicati siano portati a termine. \\
  
- I vincoli sono i seguenti:
+I vincoli sono:
 \begin{itemize}
 	\item Obbligatori
 	\begin{itemize}
@@ -147,7 +187,7 @@ Infine, é stato posto come obbligo che tutta la documentazione rimanesse in una
 Nella realizzazione del progetto l'azienda ha chiesto che si adottassero i concetti base della programmazione ad oggetti. In Instant Developer questo prevede che per ogni tabella del database debba essere creata una classe. Quindi si implementino solo ed unicamente metodi, che nel programma si distinguono in eventi e procedure, necessari. Infine, ove necessario, si crei un una classe che estenda le altre per la realizzazione della componente grafica.
 
 L'architettura adottata è una Event-Driven in particolare la Mediator Topology. .....
-Spiegare cosa è fare ricerche e descriverla nel dettaglio. Riportare immagine delle slide di cardin.
+Spiegare cosa è fare ricerche e descriverla nel dettaglio. Riportare immagine delle slide di cardin. \todo
 
 
 \section{Scelta e obiettivi personali}
@@ -160,3 +200,4 @@ Gli obiettivi che mi sono imposto di raggiungere a livello personale oltre a que
 	\item Apprendere come interfacciarmi con i clienti;
 	\item Migliorare le mie capacità di Problem Solving.
 \end{itemize}
+\newpage
