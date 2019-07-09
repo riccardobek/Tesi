@@ -11,21 +11,27 @@ Un esempio di nuova funzionalità è stata la realizzazione del caricamento imma
 In secondo luogo, ha permesso all'azienda di apprendere un metodo di implementazione del codice ordinato attraverso la catalogazione offerta da InDe che dà la possibilità di includere parti codice in cartelle e sottocartelle scrivendo a commento la loro funzionalità in modo che il codice sia più facile da capire.
 \\
 
-In terzo luogo, il costo di uno stagista è stato minimale ed ha permesso loro di esplorare nuove funzionalità risparmiando. Essendo ancora un'azienda giovane il poter conoscere e migliorare la propria operatività a prezzi minimi è considerato un ottima occasione. 
+In terzo luogo, il costo di uno stagista è stato minimale ed ha permesso loro di esplorare nuove funzionalità risparmiando. Essendo ancora un'azienda giovane, il poter conoscere e migliorare la propria operatività a prezzi minimi è considerato un ottima occasione. 
 
 
 \section{Presentazione del progetto}
 In questa sezione verranno esposte le informazioni di base relative al progetto da realizzare in quanto alcune informazioni sono già disponibili, tuttavia entreremo nel dettaglio del progetto nel capitolo 3.
+\\
+Il progetto da realizzare rappresenta una applicazione web che permetta ad una azienda cliente di inserire e mantenere un catalogo prodotti lato back-end, ovvero inserire informazioni che verranno utilizzate dalla pagina web alla quale accedono i consumatori finali. 
+Il progetto in questione quindi mira a semplificare l'inserimento a database dei dati che verranno utilizzati da un'altra applicazione.\\
+Il progetto si compone di un insieme di schermate che devono offrire la possibilità di gestire tutti i prodotti di un catalogo. 
 
-\subsection{Visualizzazione prodotti}
-Il progetto da realizzare prevede una schermata nella quale vengano riportati tutti i prodotti ed alcune delle informazioni più importanti tra cui codice identificativo, nome breve del prodotto e a quali famiglie di prodotti esso appartiene. In questa videata è richiesta la presenza delle seguenti operazioni: ricerca, cancellazione, inserimento e dettaglio.
+\todo grafica di base del progetto finale lato web frontend
+
+\subsubsection{Visualizzazione prodotti}
+Nella schermata di "Visualizzazione prodotti" si devono presentare i singoli articoli e alcune delle informazioni più importanti tra cui il codice identificativo, nome breve del prodotto e a quali famiglie di prodotti esso appartiene. In questa videata è richiesta la presenza delle seguenti operazioni: ricerca, cancellazione, inserimento e dettaglio.
 Per quanto riguarda l'inserimento esso può avvenire direttamente nell'elenco prodotti indicando gruppo di appartenenza, codice e nome breve.
-Entrando nel dettaglio invece, è richiesta l'apertura di una seconda schermata riempita con i contenuti del prodotto presenti nel database, è possibile gestire le informazioni che si desiderano presentare nella pagina web.
-Un'altra operazione a cui bisogna prestare attenzione è la cancellazione di un prodotto. Il cliente ha chiesto espressamente che questa cancellazione sia unicamente logica del prodotto fatta eccezione alle informazioni interne che potranno essere cancellate: tag, specifiche tecniche del prodotto, immagini.
+Entrando nel dettaglio invece, è richiesta l'apertura di una seconda schermata riempita con i contenuti del prodotto presenti nel database, quindi gestire le informazioni che si desiderano presentare nella pagina web di front-end.
+Un'altra operazione a cui bisogna prestare attenzione è la cancellazione di un prodotto. Il cliente ha chiesto espressamente che questa cancellazione sia unicamente logica del prodotto fatta eccezione alle informazioni interne che potranno essere cancellate fisicamente: tag, specifiche tecniche del prodotto, immagini.
 
 \subsection{Visualizzazione dettaglio prodotto}
-La visualizzazione dettaglio prodotto rappresenta il centro del progetto. In questa schermata devono essere implementate diverse funzionalità che permettono di gestire al meglio l'inserimento e l'aggiornamento delle informazioni di un articolo. Fondamentale è nella schermata avere un'unico metodo di salvataggio e dei controlli specifici che creino unicamente i record necessari. 
-Le informazioni che bisogna essere in grado di gestire sono le seguenti:
+La "Visualizzazione dettaglio prodotto" rappresenta il centro del progetto. In questa schermata devono essere implementate diverse funzionalità che permettono di gestire al meglio l'inserimento e l'aggiornamento delle informazioni di un articolo. Fondamentale è nella schermata avere un'unico metodo di salvataggio e dei controlli specifici che creino unicamente i record necessari. 
+Le informazioni che bisogna essere in grado di gestire sono:
 \begin{itemize}
 	\item Nome esteso, descrizione ed informazioni;
 	\item Inserimento tag;
@@ -37,26 +43,11 @@ Le informazioni che bisogna essere in grado di gestire sono le seguenti:
 \end{itemize}
 
 \subsection{Inserimento attraverso modali}
-Gli inserimenti delle immagini, video o delle informazioni aggiuntive deve avvenire attraverso delle modali. Creando quindi una schermata dedicata per ogni genere di informazione da passare che dalle specifiche sono le seguenti:
-\begin{itemize}
-	\item Numeri;
-	\item Liste valori;
-	\item Stringhe;
-	\item Date;
-	\item Booleani;
-	\item Multi-selezione;
-	\item URL;
-	\item Email;
-	\item Telefono;
-	\item File;
-	\item Immagine;
-	\item Multi-File;
-	\item Immagini 360;
-\end{itemize}
+Gli inserimenti delle immagini, video o delle informazioni aggiuntive deve avvenire attraverso delle modali. Le modali richieste prevedono l'inserimento di queste informazioni: Numeri, Liste valori, Stringhe, Date, Booleani, Multi-selezione, URL, Email, Telefono, File, Immagine, Multi-File, Immagini 360.
 
 \subsection{Gestione delle configurazioni}
 Le informazioni che devono poter essere aggiunte ad un prodotto hanno dei record preimpostati non cancellabili. Inoltre con questa schermata nasce l'intento di poter creare tipi di informazioni aggiuntive a discrezione dell'utente finale.
-Nell'inserimento dell'informazione da gestire è necessario limitare l'utente con i tipi indicati nella lista indicata nelle modali.
+Nell'inserimento dell'informazione da gestire è necessario limitare l'utente con i tipi indicati nelle modali.
 
 \subsection{Gestione delle traduzioni}
 Al termine del progetto è richiesto di individuare un metodo adeguato per la gestione delle traduzioni dei prodotti in lingue differenti dall'italiano. Studio dell'eventuale utilizzo di una componente RTC presente su InDe con una licenza da acquistare.
@@ -64,17 +55,11 @@ Al termine del progetto è richiesto di individuare un metodo adeguato per la ge
 \subsection{Altri interventi}
 Infine, oltre alla realizzazione del progetto, l'azienda per rendere lo stage vicino alla realtà che deve affrontare ogni giorno ha chiesto di essere disponibile e pronto a fornire supporto in questioni esterne al progetto che possono verificarsi.
 
-%\subsection{Progetto}
-%Il progetto da affrontare consiste nella realizzazione del lato amministrativo di un catalogo.
-%Durante l'intera durata dello stage si dovranno affrontare i seguenti tre stati di avanzamento: Analisi dei requisiti, Progettazione logica ed architetturale ed Implementazione.
-%In questo applicativo deve essere possibile leggere dal database tutte le informazioni dei prodotti ed entrare nel dettaglio di ciascuno di questi per poi poter apportare delle modifiche ove necessario.
-%Inoltre, deve essere possibile caricare immagini e la gestione dell'intera componente deve essere in lingua, ovvero nell'inserimento dei dati bisogna creare delle differenze tra i dati di una lingua rispetto a quelli di un'altra. 
-%Alla base della realizzazione del progetto è richiesto la massima espandibilità e la possibilità di mantenere il codice con il minimo sforzo. Per questo motivo è stato chiesto di adottare le conoscenze di Programmazione ad oggetti nella realizzazione del progetto.
 
 \subsection{Obiettivi}
 Gli obiettivi concordati nel piano di lavoro sono stati suddivisi in tre categorie: obbligatori, desiderabili e facoltativi. L'azienda ha espresso la richiesta che gli obbligatori siano completati, mentre per i desiderabili almeno due dei tre indicati siano portati a termine. \\
  
-I vincoli sono:
+Gli obiettivi sono:
 \begin{itemize}
 	\item Obbligatori
 	\begin{itemize}
@@ -100,74 +85,43 @@ I vincoli sono:
 \section{I vincoli}
 \subsection{Vincoli temporali}
 Lo stage ha una durata prevista di 310 ore complessive, distribuite in 8 settimane da 40 ore lavorative ciascuna, dal 13 Maggio 2019 al 6 Luglio 2019. L'orario di lavoro concordato con il tutor aziendale è stato dal Lunedì al Venerdì dalle 09:00 alle 18:30, con 1 ora di pausa pranzo. Prima dell'inizio dello stage è stato redatto un piano di lavoro con una scansione temporale delle attività con granularità settimanale così definita:
-\begin{itemize}
-	
-	\item \textbf{Prima Settimana - Formazione (40 ore)}
-	\begin{itemize}
-		\item Visione dei video formativi di Instant Developer;
-		\item Implementazione di quanto proposto nella fase di formazione;
-		\item Interazione con il team e i colleghi per affrontare eventuali problematiche.
-		
-	\end{itemize}
-	\item \textbf{Seconda Settimana - Conclusione della fase formativa ed inizio gestione di progetto (40 ore)} 
-	\begin{itemize}
-		\item Studio di SQL Server ed esercitazioni sull'utilizzo adottando i database esistenti;
-		\item Realizzazione di un documento con le proprie considerazioni sul metodo di formazione;
-		\item Presa visione dell'infrastruttura esistente su cui si andrà a lavorare; 
-		\item Incontro con il cliente per discutere i requisiti e le richieste relative al software da realizzare.
-	\end{itemize}
-	
-	\item \textbf{Terza Settimana - Inizio sviluppo back-end della componente (40 ore)} 
-	\begin{itemize}
-		\item Comprensione del problema e realizzazione di una bozza delle tabelle da creare al fine di non compromettere il sistema preesistente e integrare quello nuovo;
-		\item Pianificazione delle settimane in cui si andrà a realizzare il progetto e tempistiche stimate per la sua completa realizzazione;
-		\item Implementazione delle tabelle necessarie allo sviluppo del software;
-		\item Redazione dei documenti relativi al progetto che si sta per realizzare.
-	\end{itemize}
-	
-	\item \textbf{Quarta Settimana - Implementazione delle componenti di base del progetto  (40 ore)} 
-	\begin{itemize}
-		\item Realizzazione delle classi sulla base delle tabelle ideate;
-		\item Redazione della documentazione tecnica che spieghi le scelte adottate;
-		\item Creazione delle schermate basate sugli oggetti ideati;
-		\item SAL (Stato avanzamento lavori) presso il cliente.
-	\end{itemize}
-	
-	
-	\item \textbf{Quinta Settimana - Implementazione degli eventi del progetto (40 ore)} 
-	\begin{itemize}
-		\item Implementazione degli eventi di caricamento e salvataggio dei dati;
-		\item Realizzazione della documentazione relativa ad ogni singolo metodo realizzato.
-	\end{itemize}
-	
-	
-	\item \textbf{Sesta Settimana - Realizzazione delle altre componenti del progetto (40 ore)} 
-	\begin{itemize}
-		\item Test sulle componenti realizzate;
-		\item Creazione degli altri oggetti e delle altre schermate da realizzare;
-		\item Realizzazione delle pagine di upload delle immagini e dei file;
-		\item SAL (Stato avanzamento lavori) presso il cliente.
-	\end{itemize}
-	
-	
-	\item \textbf{Settima Settimana - Verifica, Validazione e Collaudo (40 ore)} 
-	\begin{itemize}
-		\item Verifica del corretto funzionamento delle componenti introdotte;
-		\item Realizzazione della documentazione relativa alle altre classi;
-		\item Integrazione della sezione Catalogo nel software preesistente;
-		\item Collaudo;
-	\end{itemize}
-	
-	
-	
-	\item \textbf{Ottava Settimana - Rilascio e Collaudo (30 ore)} 
-	\begin{itemize}
-		\item Ultime operazioni di test sul software appena rilasciato;
-		\item Roll out del progetto;
-		\item Gestione delle eventuali richieste da parte del cliente.
-	\end{itemize}
-\end{itemize}
 
+
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=1\columnwidth]{diagrammagantt} 
+	\caption{Diagramma di Gantt}
+	\label{Gantt}
+\end{figure}
+
+
+\subsubsection*{Prima Settimana - Formazione (40 ore)}
+La prima settimana prevede l'apprendimento del programma Instant Developer seguendo un corso online composto da video realizzati dai produttori del programma. Inoltre, per apprendere al meglio il prodotto, è richiesto che nel seguire il video si svolgano i progetti commissionati dal corso stesso integrandoli con richieste dell'azienda per velocizzarne l'apprendimento. Durante la settimana si dovrà entrare in contatto con gli altri membri del team di sviluppo e comprendere le dinamiche aziendali per integrarsi.
+
+\subsubsection*{Seconda Settimana - Conclusione della fase formativa ed inizio gestione di progetto (40 ore)}
+Durante la seconda settimana è stato previsto uno studio di SQL Server e delle stored procedure presenti nei database dell'azienda in modo da comprendere alcuni degli standard e saperli poi applicare in caso di necessità. Inoltre si inizia con la lettura delle specifiche del progetto che si dovrà realizzare e a seguito di una attenta analisi interna ci saranno degli incontri con il cliente per approfondire alcune caratteristiche su cui si desidera maggiore chiarezza. \\
+Infine al termine della settimana ci si aspetta la redazione di un documento che riporti il metodo formativo dell'azienda se è stato sufficiente e dove si ritiene necessario maggior impegno in modo che tali documenti fungano da base per un loro miglioramento.
+
+\subsubsection*{Terza Settimana - Inizio sviluppo back-end della componente (40 ore)}
+La terza settimana si entra nella progettazione che prevede una prima comprensione del problema e realizzazione di una bozza delle tabelle da creare al fine di non compromettere il sistema preesistente e integrando quello nuovo. Una volta individuate le tabelle necessarie dovranno essere implementate e in questa settimana si inizieranno a realizzare i primi documenti relativi a tempistiche e un primo aspetto grafico completo che il progetto dovrà avere.
+
+\subsubsection*{Quarta Settimana - Implementazione delle componenti di base del progetto  (40 ore)}
+Nella quarta settimana si inizieranno a implementare le classi basate sulle tabelle ideate, le schermate ad esse associate e al termine della settimana hanno previsto un giorno di riepilogo presso la sede del cliente dello stato di avanzamento del lavoro. Inoltre internamente hanno chiesto che si rediga un documento con le scelte implementative adottate per riutilizzare tale documentazione in caso di realizzazione di progetti simili o per sapere quali sono state le motivazioni che hanno portato ad una scelta implementativa rispetto ad un'altra.
+
+\subsubsection*{Quinta Settimana - Implementazione degli eventi del progetto (40 ore)}
+Nella quinta settimana è stato previsto un lavoro intenso nell'implementazione degli eventi di caricamento e salvataggio dei dati, mantenendo una costante redazione ed aggiornamento dei documenti relativi al progetto.
+
+\subsubsection*{Sesta Settimana - Realizzazione delle altre componenti del progetto (40 ore)}
+Durante la sesta settimana ci si aspetta che il prodotto sia sufficientemente sviluppato almeno per le componenti principali e quindi si dovranno effettuare i primi test di unità. Se il progetto è sufficientemente stabile inoltre sarà possibile passare alla creazione degli altri oggetti e delle altre schermate da realizzare, in particolare le schermate di upload delle immagini e dei file.
+Nella settimana è previsto un'incontro presso la sede del cliente in modo da visionare lo stato di avanzamento del prodotto commissionato.
+
+\subsubsection*{Settima Settimana - Verifica, Validazione e Collaudo (40 ore)}
+La settima settimana si presuppone che il progetto sia completamente realizzato e quindi si ricontrollino i documenti interni in modo che siano precisi al dettaglio per ogni singola schermata, classe e metodo implementato.
+Poi si prevede l'integrazione del prodotto nel sistema preesistente con relativo collaudo di ogni singola funzionalità e quindi sistemazione degli eventuali bug del software.
+
+
+\subsubsection*{Ottava Settimana - Rilascio e Collaudo (30 ore)}
+L'ultima settimana si dedica al collaudo del software, alla pubblicazione di quest'ultimo al cliente perché possa testarlo e fornire eventuali feedback. Infine, sono previste in questa settimana la gestione di richieste particolari del cliente, come: miglioramento grafico e  eliminazione di funzionalità prima ritenute importanti.
 
 
 \subsection{Vincoli metodologici}
@@ -186,8 +140,17 @@ Infine, é stato posto come obbligo che tutta la documentazione rimanesse in una
 \subsection{Vincoli tecnologici}
 Nella realizzazione del progetto l'azienda ha chiesto che si adottassero i concetti base della programmazione ad oggetti. In Instant Developer questo prevede che per ogni tabella del database debba essere creata una classe. Quindi si implementino solo ed unicamente metodi, che nel programma si distinguono in eventi e procedure, necessari. Infine, ove necessario, si crei un una classe che estenda le altre per la realizzazione della componente grafica.
 
-L'architettura adottata è una Event-Driven in particolare la Mediator Topology. .....
-Spiegare cosa è fare ricerche e descriverla nel dettaglio. Riportare immagine delle slide di cardin. \todo
+%Il tipo di architettura da adottare è lasciata a discrezione dello stagista. Tuttavia, da InDe una struttura abbastanza rapida e semplice da implementare e manutenere risulta essere quella Event-Driven e in azienda questa tecnologia viene spesso adottata.
+
+%Il modello di architettura Event-Driven è un modello di architettura asincrona distribuito utilizzato per produrre applicazioni altamente scalabili. Tale modello consiste di due topologie principali, mediator e broker. 
+%In questo caso verrà adoperata la Mediator Topology.
+
+%\begin{figure}[!h] 
+%	\centering 
+%	\includegraphics[width=0.8\columnwidth]{Event-Driven} 
+%	\caption{Architettura Event Driven: Mediator Topology}
+%	\label{EventDriven}
+%\end{figure}
 
 
 \section{Scelta e obiettivi personali}
