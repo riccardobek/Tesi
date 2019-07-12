@@ -21,7 +21,13 @@ Il progetto da realizzare rappresenta una applicazione web che permetta ad una a
 Il progetto in questione quindi mira a semplificare l'inserimento a database dei dati che verranno utilizzati da un'altra applicazione.\\
 Il progetto si compone di un insieme di schermate che devono offrire la possibilità di gestire tutti i prodotti di un catalogo. 
 
-\todo grafica di base del progetto finale lato web frontend
+
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=1\columnwidth]{frontend} 
+	\caption{Front-end realizzato con i dati inseriti dal configuratore}
+	\label{ImgFrontend}
+\end{figure}
 
 \subsubsection{Visualizzazione prodotti}
 Nella schermata di "Visualizzazione prodotti" si devono presentare i singoli articoli e alcune delle informazioni più importanti tra cui il codice identificativo, nome breve del prodotto e a quali famiglie di prodotti esso appartiene. In questa videata è richiesta la presenza delle seguenti operazioni: ricerca, cancellazione, inserimento e dettaglio.
@@ -138,23 +144,22 @@ Infine, é stato posto come obbligo che tutta la documentazione rimanesse in una
 
 
 \subsection{Vincoli tecnologici}
-Nella realizzazione del progetto l'azienda ha chiesto che si adottassero i concetti base della programmazione ad oggetti. In Instant Developer questo prevede che per ogni tabella del database debba essere creata una classe. Quindi si implementino solo ed unicamente metodi, che nel programma si distinguono in eventi e procedure, necessari. Infine, ove necessario, si crei un una classe che estenda le altre per la realizzazione della componente grafica.
+Nella realizzazione del progetto l'azienda ha chiesto che si adottassero i concetti base della programmazione ad oggetti. In Instant Developer questo prevede che per ogni tabella del database debba essere creata una classe. Quindi si implementino solo ed unicamente metodi, che nel programma si distinguono in eventi e procedure, necessari. \\
 
-%Il tipo di architettura da adottare è lasciata a discrezione dello stagista. Tuttavia, da InDe una struttura abbastanza rapida e semplice da implementare e manutenere risulta essere quella Event-Driven e in azienda questa tecnologia viene spesso adottata.
 
-%Il modello di architettura Event-Driven è un modello di architettura asincrona distribuito utilizzato per produrre applicazioni altamente scalabili. Tale modello consiste di due topologie principali, mediator e broker. 
-%In questo caso verrà adoperata la Mediator Topology.
+Per quanto riguarda un possibile pattern da implementare nel progetto quello che è reso più facile in InDe è il Facade, un design pattern strutturale. Questo pattern permette, attraverso un'interfaccia più semplice, l'accesso a sottosistemi che espongono interfacce complesse e molto diverse tra loro, nonché a blocchi di codice complessi. 
 
-%\begin{figure}[!h] 
-%	\centering 
-%	\includegraphics[width=0.8\columnwidth]{Event-Driven} 
-%	\caption{Architettura Event Driven: Mediator Topology}
-%	\label{EventDriven}
-%\end{figure}
+
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=0.8\columnwidth]{Pattern} 
+	\caption{Design Pattern Strutturale: Facade (UML)}
+	\label{Pattern}
+\end{figure}
 
 
 \section{Scelta e obiettivi personali}
-La scelta di iniziare lo stage presso Tepui è nata dal fatto che alcuni studenti universitari della magistrale hanno iniziato a lavorare presso questa struttura. Inoltre, l'idea di interfacciarmi con il mondo aziendale prendendo in mano la gestione di dati sensibili e la possibilità di creare un gestionale rientra perfettamente nel ruolo lavorativo da me ricercato. Dopo aver studiato economia presso l'Istituto Tecnico Commerciale Statale P.F. Calvi ed informatica presso l'Università di Padova, trovare un modno lavorativo che concilia i due mondi mi sembra un buon completamento dei miei studi fino a questo momento.\\
+La scelta di iniziare lo stage presso \azienda è nata dal fatto che alcuni studenti universitari della magistrale hanno iniziato a lavorare presso questa struttura. Inoltre, l'idea di interfacciarmi con il mondo aziendale prendendo in mano la gestione di dati sensibili e la possibilità di creare un gestionale rientra perfettamente nel ruolo lavorativo da me ricercato. Dopo aver studiato economia presso l'Istituto Tecnico Commerciale Statale P.F. Calvi ed informatica presso l'Università di Padova, trovare entrare in una realtà lavorativa che concilia i due ambiti di studio mi sembra un buon completamento dei miei studi fino a questo momento.\\
 
 Gli obiettivi che mi sono imposto di raggiungere a livello personale oltre a quelli concordati con l'azienda sono: 
 \begin{itemize}
