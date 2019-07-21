@@ -8,7 +8,7 @@ Rispetto a quanto pianificato, l'apprendimento del programma è risultato più r
 Verso fine settimana ho iniziato lo studio dei documenti relativi al configuratore catalogo/prodotti.
 
 
-\section{Progettazione logica e architetturale}
+\section{Progettazione}
 Dalla seconda settimana di stage, ho iniziato ad affrontare le dinamiche aziendali concentrandomi nelle attività di progetto che è stata divisa in incontri con il cliente e lavoro presso la sede di Castelfranco.
 
 \subsection{Database}
@@ -46,43 +46,62 @@ Questo oggetto è una vista con alcune delle informazioni più importanti. Visto
 In questo contesto la descrizione appare due volte una negli ITEM ed una nella ITEM\_INFO per il semplice motivo che la tabella esisteva già nel database.
 
 \paragraph{ITEM\_INFO}
-Nella seguente tabella vengono raccolte tutte le informazioni e rappresenta il punto di collegamento dell'intero progetto. In esso vengono inserite le etichette e i valori che rappresentano i punti fondamentali di questa tabella. Le etichette (label) sono la descrizione dei valori (value) che permettono ricerche in tabella più rapide (video, titolo, immagine). I valori sono quelli che in base alle altre tabelle saranno stampati a video dall'applicazione web di front-end (\hyperref[frontend]{figura \ref{frontendad}}).
+Nella seguente tabella vengono raccolte tutte le informazioni e rappresenta il punto di collegamento dell'intero progetto. In esso vengono inserite le etichette e i valori che rappresentano i punti fondamentali di questa tabella. Le etichette (label) sono la descrizione dei valori (value) che permettono ricerche in tabella più rapide (video, titolo, immagine). I valori sono quelli che in base alle altre tabelle saranno stampati a video dall'applicazione web di front-end (\hyperref[frontend]{figura \ref{frontend}}).
 
 \paragraph{INFO\_CONFIG}
+La tabella INFO\_CONFIG è stata realizzata al fine di inserire record con specifiche che limitano i tipi di record che possono essere gestiti all'interno di ITEM\_INFO. Inoltre definiscono le caratteristiche su cui sono fondati i record della tabella associata ad esempio è possibile definire le estensioni di file o un parametro che mi hanno chiesto di gestire in un secondo momento, ovvero la lingua; nel diagramma risulta già presente, ma in realtà è stato aggiunto in un secondo momento verso fine progetto circa a metà della penultima settimana.
 
 \paragraph{INFO\_MEDIA}
+INFO\_MEDIA è la tabella, come è comprensibile dal nome, che detiene tutte le informazioni relative ai file. In questo caso una prima idea è stata quella di salvare il file nel database con un blob, tuttavia ho pensato che poi nell'interrogazione di una tabella contenente molti media poteva diventare molto pesante considerando la richiesta di gestione dei video. In questa occasione ho pensato fosse più propizio ideare una cartella online dove è installata l'applicazione con un GUID (nome univoco) assegnato al file e nel database disporre unicamente del percorso relativo dell'immagine.
 
 \paragraph{INFO\_SECTION}
+Le informazioni relative ad un prodotto devono essere categorizzate. Questa tabella ha la funzione di indicare la categoria di appartenenza così come avviene in diversi siti e-commerce. L'idea è di poter gestire le informazioni presentandole in sezioni dinamiche tante quante si ritengano necessarie. 
 
 \paragraph{TAG}
+Tabella che serve ad includere ogni tipo di parole chiavi che permettano di effettuare ricerche per arrivare ad uno specifico prodotto o gruppo di prodotti. Questa tabella non è stata creata perché è adoperata in altri contesti.
 
 \paragraph{ITEM\_TAG}
+Quest'ultima tabella ha lo scopo di collegare i tag con lo specifico articolo. Si è di fronte ad una relazione uno a molti che, in fase di ristrutturazione, ha comportato la creazione di una tabella intermedia tra articoli e tag.
 
 
 
 \subsection{Design Pattern}
-Facade spiegare perchè adottato e come si è pensato di realizzarlo
-UML
+Nella realizzazione dell'applicazione per la maggior parte delle videate un singolo oggetto doveva gestire le sue operazioni nella propria videata. Vi è stato solo un caso particolare che ha richiesto l'uso del design pattern indicato nei vincoli tecnologici (\hyperref[vincoliteconlogici]{Sezione \ref{vincoliteconlogici}}) e che già nella fase di progettazione del database è stato abbozzato: nella gestione di dettaglio del singolo articolo.
+La decisione di adottare il design pattern strutturale Facade si deve alla conformazione del database pensata. Tutte le informazioni partono da un articolo (record della tabella ITEM).\\
 
-\section{Progettazione di dettaglio}
-Quali sono le ulteriori attenizoni a cui bisogna fare attenzione se ce ne sono.
-UML, comportamento delle funzionalità principali
+Il grafico UML in figura \todo indica come si è pensato di realizzare il design pattern e quali metodi ed eventi si sono ritenuti necessari nella fase di progettazione per permettere di caricare, creare, modificare e cancellare i record delle diverse tabelle.
+
+%\begin{figure}[!h] 
+%	\centering 
+%	\includegraphics[width=1\columnwidth]{UML} 
+%	\caption{Diagramma delle classi UML}
+%	\label{DiagrammaUML}
+%\end{figure}
+
+\subsubsection{Diagrammi di sequenza}
+
+\paragraph{Caricamento}
+\paragraph{Creazione}
+\paragraph{Modifica}
+\paragraph{Cancellazione}
 
 
 \section{Codifica}
-Spiegare le singole attività svolte per ogni singolo oggetto (i più importanti )
+Dopo la fase di progettazione, si è affrontata la codifica. Questa fase è stata differente rispetto a quanto ho sviluppato durante il corso di Programmazione ad oggetti, Programmazione concorrente e distribuita ed Ingegneria del Software. Il motivo della diversità è l'applicazione \inde\.\\
+Progettare classi e videate con questo software mi hanno abbastanza cambiato il modo di implementare e testare. Prima di questo cambiamento tendevo a crearmi una scaletta, implementarla e passo per passo effettuare dei test di unità basati su codice scritto (ad esempio Java associato a JUnit).\\
+In questo contesto, invece, mi sono ritrovato a saltare i test di unità e passando immediatamente a test di sistema. Di conseguenza creavo classi, metodi ed eventi cercando quanto più possibile di seguire una logica rigorosamente commentata. Mi attendevo molti errori, ma sono rimasto sorpreso. Il numero di errori, per il fatto che il codice generato si basa su template ben controllato e già testato dalla casa produttrice, era molto basso e con il debugger incluso ho potuto risolvere ogni errore commesso in poco tempo per poi passare ad altre funzionalità.
 
-\subsection{Classi}
+%SPiegrare instant developer quanto è semplice ideare cose anche complicate senza pensare troppo a costrutti particolari al quale si affida ad un template già elaborato e le possibili estensioni ecc gestite mostraare la realizzazione passo passo volendo
+%Spiegare le singole attività svolte per ogni singolo oggetto (i più importanti )
 
-\subsubsection{Classi di base}
+\subsection{Classi base}
 
-\subsubsection{Facade: CatalogoProdotto}
-
+\subsection{Facade: CatalogoProdotto}
 
 \subsection{Videate}
 elenco delle videate normali
 
-\subsubsection{Modali}
+\subsection{Modali}
 metodo seguito come le si sono implementate
 
 
@@ -90,6 +109,14 @@ metodo seguito come le si sono implementate
 
 
 \section{Altri interventi}
+
+\section{\inde: creazione di una schermata base}
+In questa sezione ho desiderio di analizzare, oltre che alla fase di codifica del progetto, il particolare aiuto derivante da InDe. Illustro come una pagina web viene creata da zero per permettere ai lettori di questo documento di comprendere quanto può essere semplice, con l'aiuto di strumenti RAD come questo, creare applicazioni.
+
+\subsection{Passo 1: Database}
+\subsection{Passo 2: Oggetto}
+\subsection{Passo 3: Videata}
+\subsection{Passo 4: Estensioni}
 
 
 
