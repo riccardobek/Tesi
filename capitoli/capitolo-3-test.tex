@@ -66,47 +66,57 @@ Quest'ultima tabella ha lo scopo di collegare i tag con lo specifico articolo. S
 
 
 \subsection{Design Pattern}
-Nella realizzazione dell'applicazione per la maggior parte delle videate un singolo oggetto doveva gestire le sue operazioni nella propria videata. Vi è stato solo un caso particolare che ha richiesto l'uso del design pattern indicato nei vincoli tecnologici (\hyperref[vincoliteconlogici]{Sezione \ref{vincoliteconlogici}}) e che già nella fase di progettazione del database è stato abbozzato: nella gestione di dettaglio del singolo articolo.
-La decisione di adottare il design pattern strutturale Facade si deve alla conformazione del database pensata. Tutte le informazioni partono da un articolo (record della tabella ITEM).\\
+Nella realizzazione dell'applicazione per la maggior parte delle videate un singolo oggetto doveva gestire le sue operazioni nella propria videata. Vi è stato solo un caso particolare che ha richiesto l'uso di un design pattern e che già nella fase di progettazione del database è stato abbozzato: nella gestione di dettaglio del singolo articolo.
+Il pattern scelto è il Facade. Tutte le informazioni partono da un articolo (record della tabella ITEM) e da questo vengono generate opportune operazioni.\\
 
-Il grafico UML in figura \todo indica come si è pensato di realizzare il design pattern e quali metodi ed eventi si sono ritenuti necessari nella fase di progettazione per permettere di caricare, creare, modificare e cancellare i record delle diverse tabelle.
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=1\columnwidth]{Pattern} 
+	\caption{Design pattern strutturale: Facade}
+	\label{Pattern}
+\end{figure}
 
-%\begin{figure}[!h] 
-%	\centering 
-%	\includegraphics[width=1\columnwidth]{UML} 
-%	\caption{Diagramma delle classi UML}
-%	\label{DiagrammaUML}
-%\end{figure}
 
-\subsubsection{Diagrammi di sequenza}
+Il grafico UML generato una volta definito il design pattern da applicare è risultato essere quello sottostante. Per realizzarlo, ho seguito la logica che doveva avere l'applicazione ed ho provato a segnare le attività di caricamento, creazione, modifica e cancellazione dei record delle diverse tabelle.
 
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=0.7\columnwidth]{UML} 
+	\caption{Diagramma UML delle classi}
+	\label{UML}
+\end{figure}
+
+%\subsubsection{Diagrammi di sequenza}
 \paragraph{Caricamento}
-\paragraph{Creazione}
-\paragraph{Modifica}
-\paragraph{Cancellazione}
+Un dettaglio articolo non è altro che un'insieme di informazioni (ITEM\_INFO). Partendo da questo presupposto ho deciso di caricare un array di oggetti (in InDe prende il nome di IDCollection).
+Per definire quale articolo caricare indico uso l'id dell'articolo; quindi carico le varie informazioni tramite query. Quando ricevo una informazione verifico immediatamente a quale configurazione (INFO\_CONFIG) appartiene e solo se necessario carico gli ulteriori dati, ovvero i media. Infine, con la classe ITEM\_TAG metto in un array tutti i tag associati all'articolo selezionato.
 
+\paragraph{Creazione}
+Questa operazione è molto più semplice e controllata. Prima creo un articolo (ITEM), quindi entro nel dettaglio e creo tanti ITEM\_INFO con o senza il proprio ITEM\_MEDIA. Poi se vengono inseriti creo gli ITEM\_TAG. Tutto questo viene salvato unicamente dall'oggetto ITEM\_CATALOG che fa partire gli eventi di save dei vari oggetti.
+
+\paragraph{Modifica}
+In questo caso la modifica è uguale all'inserimento. La differenza è che in inserimento all'inizio devo creare un articolo e poi aprire il suo dettaglio senza caricare informazioni. In questa situazione, l'oggetto deve caricare ogni singola informazione quindi è necessario un controllo sulle query se ritornano o meno informazioni. In seguito, cambiando un dato questo segnala all'oggetto, a volte forzando l'update, che devono essere aggiornati i dati.
+
+\paragraph{Cancellazione}
+L'ultima operazione non meno importante è la cancellazione. Questa deve generare la cancellazione di ogni singolo record di uno specifico articolo senza lasciare record "orfani". Per evitare questo fenomeno, quando cancello inizio dai figli fino al raggiungimento del padre ed infine blocco la cancellazione dell'articolo (ITEM), ma cambio lo stato di un campo del record da "I" (Insert) o "M"(Modified) a "D" (Deleted) ed aggiorno XUpdDatetime.
 
 \section{Codifica}
 Dopo la fase di progettazione, si è affrontata la codifica. Questa fase è stata differente rispetto a quanto ho sviluppato durante il corso di Programmazione ad oggetti, Programmazione concorrente e distribuita ed Ingegneria del Software. Il motivo della diversità è l'applicazione \inde\.\\
 Progettare classi e videate con questo software mi hanno abbastanza cambiato il modo di implementare e testare. Prima di questo cambiamento tendevo a crearmi una scaletta, implementarla e passo per passo effettuare dei test di unità basati su codice scritto (ad esempio Java associato a JUnit).\\
 In questo contesto, invece, mi sono ritrovato a saltare i test di unità e passando immediatamente a test di sistema. Di conseguenza creavo classi, metodi ed eventi cercando quanto più possibile di seguire una logica rigorosamente commentata. Mi attendevo molti errori, ma sono rimasto sorpreso. Il numero di errori, per il fatto che il codice generato si basa su template ben controllato e già testato dalla casa produttrice, era molto basso e con il debugger incluso ho potuto risolvere ogni errore commesso in poco tempo per poi passare ad altre funzionalità.
 
-%SPiegrare instant developer quanto è semplice ideare cose anche complicate senza pensare troppo a costrutti particolari al quale si affida ad un template già elaborato e le possibili estensioni ecc gestite mostraare la realizzazione passo passo volendo
-%Spiegare le singole attività svolte per ogni singolo oggetto (i più importanti )
-
 \subsection{Classi base}
 
-\subsection{Facade: CatalogoProdotto}
+
+\subsection{Facade: ITEM\_CATALOG}
 
 \subsection{Videate}
 elenco delle videate normali
 
-\subsection{Modali}
+\subsubsection{Modali}
 metodo seguito come le si sono implementate
 
-
 \section{Verifica, validazione e collaudo}
-
 
 \section{Altri interventi}
 
