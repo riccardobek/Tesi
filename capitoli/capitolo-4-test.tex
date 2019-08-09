@@ -2,7 +2,7 @@
 \section{\inde}
 
 \subsection{\inde: creazione di una schermata base}
-In questa sezione ho desiderio di analizzare il particolare aiuto derivante da InDe. Illustro come una pagina web viene creata da zero per permettere ai lettori di questo documento di comprendere quanto può essere semplice, con l'aiuto di strumenti RAD come questo, creare applicazioni.
+In questa sezione vorrei analizzare il particolare il contributo di Inde al mio progetto. Illustro come una pagina web viene creata da zero per permettere ai lettori di questo documento di comprendere quanto può essere semplice, con l'aiuto di strumenti RAD come questo, creare applicazioni.
 
 \subsubsection{Passo 1: Database}
 La prima attività da svolgere è quella di pensare al proprio database, se è necessario. Quest'ultima affermazione è legata al fatto che è possibile creare applicazioni anche senza un database.
@@ -10,13 +10,13 @@ In questo contesto ideiamo un semplice database per la gestione delle corsie di 
 
 Per creare le due tabelle è necessario conoscere basi di dati soprattutto per evitare creare fin da subito query non troppo complicate che faticano ad essere completate. 
 
-Con il pulsante destro clicco due volte sul database definisco le specifiche che lo riguardano. A questo punto premo il pulsante destro del mouse sul database e seleziono la voce "Aggiungi tabella" inserisco le specifiche di questa. Con lo stesso procedimento di creazione tabella, creo i campi.
+Con il pulsante destro clicco due volte sul database definisco le specifiche che lo riguardano. A questo punto premo il pulsante destro del mouse sul database e seleziono la voce "Aggiungi tabella". Con lo stesso procedimento di creazione tabella, creo i campi.
 Se desidero creare delle foreign key si deve trascinare la tabella interessata verso quella di destinazione.  
 
 \todo immagine e ulteriori spiegazioni
 
 \subsubsection{Passo 2: Oggetto}
-Una volta creata la tabella, per creare un oggetto è sufficiente trascinare sull'applicazione la tabella tenendo premuto shift e ctrl. Viene generato un documento (classe) che potremo gestire come meglio crediamo. Inquesto caso mi limito a creare l'oggetto.
+Una volta creata la tabella, per creare un oggetto è sufficiente trascinare sull'applicazione la tabella tenendo premuto shift e ctrl. Viene generato un documento (classe) che potremo gestire come meglio crediamo. In questo caso mi limito a creare l'oggetto.
 
 
 \todo immagine e ulteriori spiegazioni
@@ -28,48 +28,59 @@ Trascinando l'oggetto sull'applicazione e premendo o shift o ctrl viene creata u
 \todo immagine e ulteriori spiegazioni
 
 \subsection{Estensioni}
-In questo contesto non sono è risultato necessario adoperare questa funzionalità. Tuttavia, ritengo importante accennare alle possibilità offerte dall'applicazione. InDe, infatti, permette di estendere le sue librerie con delle nuove. Ho visto che è possibile creare delle funzioni in SQL. Oppure implementare esternamente un file Java o C\# e quindi richiamarlo nell'applicazione. 
-L'aspetto negativo delle estensioni è che quando creo una applicazione InDe mi permette di passare da Java a C\# e viceversa in poco tempo. Con le estensioni devo prevedere di creare due librerie una per linguaggio. E lo stesso vale per i database gestiti, se creo un comando sql nuovo (esempio nullif di sql server) devo creare il corrispettivo di tutti i database che dovrò utilizzare altrimenti mi devo limitare ad un singolo tipo di database.
-
+In questo contesto non sono è risultato necessario adoperare questa funzionalità. Tuttavia, ritengo importante accennare alle possibilità offerte dall'applicazione. InDe, infatti, permette di estendere le sue librerie con delle nuove. Ho visto che è possibile creare delle funzioni in SQL e anche implementare esternamente un file Java o C\# e richiamarlo nell'applicazione. 
+L'aspetto negativo delle estensioni è che una volta implementate in Java o C\# o nel linguaggio del database (Oracle, SQL Server, MySQL) non si può cambiare tecnologia, salvo il caso in cui non si siano implementate le estensioni per tutti i linguaggi.
 
 \todo immagine e ulteriori spiegazioni
 
 \section{Obiettivi}
+In questa sezione indico il raggiungimento degli obiettivi pianificati con l'azienda e quelli che mi sono prefissato di raggiungere al termine dello stage.
 
 \subsection{Stage}
-Gli obiettivi concordati nel piano di lavoro sono stati suddivisi in tre categorie: obbligatori, desiderabili e facoltativi. L'azienda ha espresso la richiesta che gli obbligatori siano completati, mentre per i desiderabili, almeno due dei tre indicati, siano portati a termine. \\
+Lo stage si è svolto in 310 ore esattamente come da pianificazione. Le attività hanno avuto tempi diversi da quanto previsto nel Piano di lavoro: l'apprendimento del software, delle Stored Procedures e dei formalismi hanno richiesto quattro giorni, permettendomi di anticipare lo studio dell'applicazione, ad oggi, realizzata.  L'implementazione e rilascio del progetto ha richiesto la totalità del tempo lavorativo, non potendo affrontare l'aspetto delle stored procedures. 
+La seguente tabella illustra lo stato di soddisfacimento dei requisti:
 
-Gli obiettivi si distinguono in:
-\begin{itemize}
-	\item Obbligatori
-	\begin{itemize}
-		\item \underline{\textit{O01}}: Apprendimento della piattaforma Instant Developer;
-		\item \underline{\textit{O02}}: Test delle funzionalità implementate e rilascio;
-		\item \underline{\textit{O03}}: Utilizzo di Microsoft SQL Server.
-	\end{itemize}
+\begin{center}
+	\begin{tabular}{ l|l|c }
+		\hline
+		
+		\multicolumn{2}{c}{\textbf{Obbligatori}} & \textbf{Soddisfatto} \\
+		\hline
+		\textit{O01} & Apprendimento della piattaforma Instant Developer & Si\\
+		\textit{O02} & Test delle funzionalità implementate e rilascio & Si\\
+		\textit{O03} & Utilizzo di Microsoft SQL Server& Si\\
+		\hline
+		\multicolumn{2}{c}{\textbf{Desiderabili}} & \textbf{Soddisfatto}\\
+		\hline
+		\textit{D01} & Gestione di progetto & Si\\
+		\textit{D02} & Comunicazione con il cliente & Si\\
+		\textit{D03} & Scrittura delle procedure T-SQL& No\\
+		\hline
+		\multicolumn{2}{c}{\textbf{Facoltativi}} & \textbf{Soddisfatto}\\
+		\hline
+		\textit{F01} & Autonomia a risolvere nuove problematiche & Si
+		
+	\end{tabular}
+\end{center}
 	
-	\item Desiderabili 
-	\begin{itemize}
-		\item \underline{\textit{D01}}: Gestione di progetto;
-		\item \underline{\textit{D02}}: Comunicazione con il cliente;
-		\item \underline{\textit{D03}}: Scrittura delle procedure T-SQL.
-	\end{itemize}
-	
-	\item Facoltativi
-	\begin{itemize}
-		\item \underline{\textit{F01}}: Autonomia a risolvere nuove problematiche.
-	\end{itemize} 
-\end{itemize}
 
 \subsection{Personali}
-Sono entrato in contatto con l’azienda ospitante grazie ad un amico che mi ha messo in contatto con i responsabili. Dopo un colloquio ed una spiegazione generale delle attività svolte dall'azienda, hanno suscitato il mio interesse. L'idea di interfacciarmi con il mondo del lavoro prendendo in mano la gestione di dati sensibili e la possibilità di creare un gestionale rientra perfettamente nell'impiego da me cercato.\\
-Dopo aver studiato economia presso l'Istituto Tecnico Commerciale Statale P.F. Calvi ed informatica presso l'Università di Padova, entrare in una realtà lavorativa che concilia i due ambiti, mi sembra un buon completamento dei miei studi fino a questo momento.\\
-Gli obiettivi che mi sono posto di raggiungere a livello personale oltre a quelli concordati con l'azienda sono: 
-\begin{itemize}
-	\item Accrescere le conoscenze in merito al mondo RAD e Data Warehouse;
-	\item Migliorare le capacità di realizzazione di applicazioni seguendo il metodo Bottom-Up;
-	\item Apprendere come interfacciarmi con i clienti;
-	\item Migliorare le mie capacità di Problem Solving.
-\end{itemize}
+Per quanto riguarda gli obiettivi personali, mi ritengo pienamente soddisfatto. Ho potuto apprendere un tipo di programmazione che mira molto sulla logica e meno sul codice. Inoltre, ho potuto osservare dei database di grandi dimensioni non sempre gestiti nella maniera ottimale e comprenderne le funcionalità e lescelte che portano la realizzazione di alcune delle tabelle. Infine, ho imparato quanto difficile può essere la comunicazione tra cliente e fornitore.
+Riassumendo, gli obiettivi personali raggiunti ma che ritengo possano ulteriormente migliorare sono:
+
+
+\begin{center}
+	\begin{tabular}{l|l}
+		\hline
+		\textbf{Personali}& \textbf{Soddisfatto} \\
+		\hline
+		Accrescere le conoscenze in merito al mondo RAD e Data Warehouse & Si\\
+		Migliorare le capacità di realizzazione di applicazioni seguendo il metodo Bottom-Up & Migliorabile\\
+		Apprendere come interfacciarmi con i clienti & Si\\
+		Migliorare le mie capacità di Problem Solving & Si
+
+	\end{tabular}
+\end{center}
+
 
 \section{Considerazioni personali}
