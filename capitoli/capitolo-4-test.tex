@@ -1,8 +1,28 @@
 \chapter{Valutazione retrospettiva}
+\textit{Il seguente capitolo è dedicato ad illustrare i risultati ottenuti dallo stage universitario. In aggiunta, è descritta la tecnologia adottata nello sviluppo dell'applicazione.}
+
 \section{\inde}
 
+\subsection{CASE}
+I CASE sono strumenti software dedicati allo sviluppo assistito dal computer. Il primo CASE risale agli anni '80. Tuttavia, ad oggi pochi sono gli strumenti CASE in circolazione. In generale, nelle software house, si predilige un'attività manuale, nella quale il ricorso a strumenti specializzati avviene solo nelle ultime fasi del processo attraverso l'uso di ambienti integrati di compilazione, linkaggio e debugging.
+Tuttavia, dagli anni Ottanta ad oggi il loro sviluppo è proseguito, creando strumenti sofisticati che permettono di disegnare il diagramma UML e generare applicazioni o semplicemente di creare l'aspetto grafico per poi definire la logica dell'applicazione.
+Lo scopo di questi strumenti è la gestione di: complessità, modificabilità, qualità e automazione dei processi. I CASE permettono di generare codice e strutture dati di qualità. La qualità ottenibile da questi strumenti è duplice: non solo crea codice ben formattato e commentato, ma anche ben pensato grazie all'integrazione dei freamwork ORM.
+Gli strumenti CASE però non servono unicamente alla creazione di applicazione. Esistono categorie differenti di CASE mirati a semplificare una delle seguenti attività:
+\begin{itemize}
+	\item Progettazione (Access, Visio, Argo UML);
+	\item Realizzazione del codice (Eclipse, Qt Creator);
+	\item Supporto al controllo qualità (MaxQ, Suite Mercury);
+	\item Supporto alla manutenzione (Erwin, Bugzilla);
+	\item Gestione versioni e configurazioni (Subversion, Git);
+	\item Pianificazione e gestione (Excel, Microsoft project);
+\end{itemize}
+I software citati nell'elenco precedente sono solo una piccola parte di un mondo di software che oggi sono in circolazione. Tra questi software rientra anche \inde, il programma utilizzato durante lo stage. 
+
+
+
+
 \subsection{\inde: creazione di una schermata base}
-In questa sezione vorrei analizzare il particolare il contributo di Inde al mio progetto. Illustro come una pagina web viene creata da zero per permettere ai lettori di questo documento di comprendere quanto può essere semplice, con l'aiuto di strumenti RAD come questo, creare applicazioni.
+In questa sezione vorrei analizzare il particolare il contributo di Inde al mio progetto. Illustro come una pagina web viene creata da zero per permettere ai lettori di questo documento di comprendere quanto può essere semplice, con l'aiuto di strumenti CASE come questo, creare applicazioni.
 
 \subsubsection{Passo 1: Database}
 La prima attività da svolgere è quella di pensare al proprio database, se è necessario. Quest'ultima affermazione è legata al fatto che è possibile creare applicazioni anche senza un database.
@@ -28,7 +48,7 @@ Trascinando l'oggetto sull'applicazione e premendo o shift o ctrl viene creata u
 \todo immagine e ulteriori spiegazioni
 
 \subsection{Estensioni}
-In questo contesto non sono è risultato necessario adoperare questa funzionalità. Tuttavia, ritengo importante accennare alle possibilità offerte dall'applicazione. InDe, infatti, permette di estendere le sue librerie con delle nuove. Ho visto che è possibile creare delle funzioni in SQL e anche implementare esternamente un file Java o C\# e richiamarlo nell'applicazione. 
+In questo contesto non è risultato necessario adoperare questa funzionalità. Tuttavia, ritengo importante accennare alle possibilità offerte dall'applicazione. InDe, infatti, permette di estendere le sue librerie con delle nuove. Ho visto che è possibile creare delle funzioni in SQL e anche implementare esternamente un file Java o C\# e richiamarlo nell'applicazione. 
 L'aspetto negativo delle estensioni è che una volta implementate in Java o C\# o nel linguaggio del database (Oracle, SQL Server, MySQL) non si può cambiare tecnologia, salvo il caso in cui non si siano implementate le estensioni per tutti i linguaggi.
 
 \todo immagine e ulteriori spiegazioni
@@ -65,12 +85,12 @@ La seguente tabella illustra lo stato di soddisfacimento dei requisti:
 	
 
 \subsection{Personali}
-Per quanto riguarda gli obiettivi personali, mi ritengo pienamente soddisfatto. Ho potuto apprendere un tipo di programmazione che mira molto sulla logica e meno sul codice. Inoltre, ho potuto osservare dei database di grandi dimensioni non sempre gestiti nella maniera ottimale e comprenderne le funcionalità e lescelte che portano la realizzazione di alcune delle tabelle. Infine, ho imparato quanto difficile può essere la comunicazione tra cliente e fornitore.
+Per quanto riguarda gli obiettivi personali, mi ritengo pienamente soddisfatto. Ho potuto apprendere un tipo di programmazione che mira molto sulla logica e meno sul codice. Inoltre, ho potuto osservare dei database di grandi dimensioni non sempre gestiti nella maniera ottimale e comprenderne le funzionalità e le scelte che portano la realizzazione di alcune delle tabelle. Infine, ho imparato quanto difficile può essere la comunicazione tra cliente e fornitore.
 Riassumendo, gli obiettivi personali raggiunti ma che ritengo possano ulteriormente migliorare sono:
 
 
 \begin{center}
-	\begin{tabular}{l|l}
+	\begin{tabular}{p{10cm}|c}
 		\hline
 		\textbf{Personali}& \textbf{Soddisfatto} \\
 		\hline

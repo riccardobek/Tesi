@@ -92,17 +92,43 @@ Il grafico UML, generato una volta definito il design pattern da applicare, è r
 Un dettaglio articolo non è altro che un'insieme di informazioni (ITEM\_INFO). Partendo da questo presupposto ho deciso di caricare un array di oggetti (in InDe prende il nome di IDCollection).
 Per definire quale articolo carico, uso l'id dell'articolo; quindi eseguo la query. Quando ricevo una informazione verifico immediatamente a quale configurazione (INFO\_CONFIG) appartiene e solo se necessario carico gli ulteriori dati, ossia i media. Infine, con la classe ITEM\_TAG metto in un array tutti i tag associati all'articolo selezionato.
 
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=0.7\columnwidth]{Caricamento} 
+	\caption{Diagramma delle sequenze: caricamento}
+	\label{DS:caricamento}
+\end{figure}
+
 \paragraph{Creazione}
 In questo caso, è necessario creare un articolo ITEM e poi prendere in esame gli ITEM\_INFO con o senza il proprio ITEM\_MEDIA. Poi, se vengono inseriti creo gli ITEM\_TAG. Tutto questo viene salvato unicamente dall'oggetto ITEM\_CATALOG permette di avviare gli eventi di save() dei vari oggetti.
+
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=0.7\columnwidth]{Caricamento} 
+	\caption{Diagramma delle sequenze: creazione}
+	\label{DS:creazione}
+\end{figure}
 
 \paragraph{Modifica}
 In questo caso la modifica è uguale all'inserimento. La differenza è che nella fase di modifica dopo aver selezionato l'articolo desiderato, è caricata la videata di dettaglio con le informazioni che sarà possibile modificare a volte forzando l'update.
 
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=0.7\columnwidth]{Caricamento} 
+	\caption{Diagramma delle sequenze: modifica}
+	\label{DS:modifica}
+\end{figure}
+
 \paragraph{Cancellazione}
 Ultima ma non meno importante è l' operazione di cancellazione. L'eliminazione di ogni singolo record di uno specifico articolo deve avvenire senza lasciare record orfani, pertanto la cancellazione ha inizio dai figli. L'ultima operazione manda in eliminazione l'articolo (ITEM) per il quale è prevista la cancellazione logica: cambio lo XState di un campo del record da "I" (Insert) o "M"(Modified) a "D" (Deleted) ed aggiorno XUpdDatetime.\\
 
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=0.7\columnwidth]{Caricamento} 
+	\caption{Diagramma delle sequenze: cancellazione}
+	\label{DS:cancellazione}
+\end{figure}
 
-\todo diagrammi di sequenza per le 4 operazioni
 
 
 \section{Codifica}
