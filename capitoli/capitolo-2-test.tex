@@ -2,14 +2,12 @@
 \textit{Questo capitolo spiega il motivo per cui l'azienda ha deciso di pendere uno stagista e l'utilità che potrà avere nella realizzazione del progetto. Inoltre, vengono presentati i vincoli imposti in sede di pianificazione dello stage e gli obiettivi che ci si aspetta vengano realizzati.}
 
 \section{Vantaggi dell'azienda}
-Tepui trae diversi vantaggi dall'attività di stage curricolare organizzata presso la sede di Castelfranco Veneto.\\
+Tepui trae diversi vantaggi dall'attività di stage curricolare organizzata presso la sede di Castelfranco Veneto.
 
 In primo luogo, l'aumento della forza lavoro. L'introduzione di un nuovo membro nel team di sviluppo ha permesso all'azienda di redistribuire il carico di lavoro in modo da implementare altri progetti in cantiere e di incrementare i servizi di consulenza. Inoltre, il punto di vista proveniente da un utente esterno ha permesso all'azienda di individuare nuove funzionalità di Instant Developer rilasciate dalla casa produttrice.
 Un esempio di nuova funzionalità è stata la realizzazione del caricamento immagini senza l'ausilio di informazioni di header in fase di upload e la possibilità di caricare i file in una cartella specifica temporanea modificando dei comandi preimpostati dall'applicazione.
-\\
 
 In secondo luogo, lo stage ha permesso all'azienda di apprendere un metodo di implementazione del codice ordinato attraverso la catalogazione offerta da InDe che dà la possibilità di includere parti codice in cartelle e sottocartelle scrivendo a commento la loro funzionalità in modo che il codice sia più facile da capire.
-\\
 
 In terzo luogo, il costo di uno stagista è stato minimale ed ha permesso di esplorare nuove funzionalità risparmiando. Trattandosi di un'azienda giovane, poter conoscere e migliorare la propria operatività a prezzi irrisori è considerato un'ottima occasione. 
 
@@ -17,11 +15,12 @@ In terzo luogo, il costo di uno stagista è stato minimale ed ha permesso di esp
 \section{Presentazione del progetto}
 In questa sezione verranno esposte le informazioni di base relative al progetto da realizzare. Entreremo nel dettaglio del progetto nel capitolo 3.
 \\
+
 Il progetto da realizzare rappresenta una applicazione web che permetta ad una azienda cliente di inserire e mantenere un catalogo prodotti lato back-end, ovvero inserire informazioni che verranno utilizzate dalla pagina web alla quale accedono i consumatori B2B. 
 Il progetto in questione quindi mira a:
 \begin{itemize}
-	\item  semplificare l'inserimento a database dei dati che verranno utilizzati da un'altra applicazione;
-	\item -	Arricchire dati provenienti da un sistema terzo.
+	\item semplificare l'inserimento a database dei dati che verranno utilizzati da un'altra applicazione;
+	\item arricchire dati provenienti da un sistema terzo.
 \end{itemize}
 
 Il progetto si compone di un insieme di schermate che devono offrire la possibilità di gestire tutti i prodotti di un catalogo. 
@@ -152,13 +151,13 @@ Infine, é stato posto come obbligo che tutta la documentazione rimanesse in una
 \subsection{Vincoli tecnologici}\label{vincoliteconlogici}
 Nella realizzazione del progetto l'azienda ha chiesto che si adottassero i concetti base della programmazione ad oggetti. In Instant Developer questo prevede che per ogni tabella del database debba essere creata una classe. Quindi si implementano solo ed unicamente metodi, che nel programma si distinguono in eventi e procedure, necessari. \\
 
-\inde presenta due diverse modalità di creazione delle pagine web: Table Oriented (TO) e Document Oriented (DO). Nel mio caso la richiesta dell'azienda prevedeva l'utilizzo della seconda modalità applicando i concetti appresi nella programmazione ad oggetti. La programmazione DO corrisponde alla Object Oriented Programming.
+\inde presenta due diverse modalità di creazione delle pagine web: Table Oriented (TO)\label{TO} e Document Oriented (DO) \label{DO}. Nel mio caso la richiesta dell'azienda prevedeva l'utilizzo della seconda modalità applicando i concetti appresi nella programmazione ad oggetti. La programmazione DO corrisponde alla Object Oriented Programming (OOP)\label{OOP}.
 
-La document orientation (DO) si basa su un framework ORM (Object-relational Mapping) di classe enterprise, il cui scopo è, oltre quello di automatizzare la serializzazione ed il caricamento degli oggetti dal database, quello di gestirne l'intero ciclo di vita e le relazioni con gli altri componenti dell'applicazione. Le caratteristiche enterprise della DO sono arricchite dalla presenza di un sistema estensibile di servizi ai documenti, che attraverso tecniche OOP permette di implementare caratteristiche comuni e perpendicolari alla gerarchia delle classi.
+La DO si basa su un framework ORM (Object-relational Mapping) di classe enterprise, il cui scopo è, oltre quello di automatizzare il caricamento degli oggetti dal database, quello di gestirne l'intero ciclo di vita e le relazioni con gli altri componenti dell'applicazione. Le caratteristiche enterprise della DO sono arricchite dalla presenza di un sistema estensibile di servizi ai documenti, che attraverso tecniche OOP permette di implementare caratteristiche comuni alla gerarchia delle classi \cite{[11]}.
 
 Con InDe è possibile creare manualmente le classi e poi aggiungere le proprietà e i metodi, oppure affidarsi ad un metodo più semplice, ovvero quello di effettuare un D\&D della tabella del database che conterrà i dati del documento sull'applicazione, tenendo premuti i tasti shift e ctrl, generando automaticamente le classi. 
 
-Questo comportamento dell'applicazione va contro i principi dell'ingegneria del software, la quale prima prevede si progetti lo schema delle classi e poi questo lo si traduca in uno schema di database. Il metodo proposto non presuppone una maggiore importanza del database rispetto alle classi, ma è stato pensato per ottenere i seguenti vantaggi:
+Questo comportamento dell'applicazione va contro i principi dell'ingegneria del software, la quale prima prevede si progetti lo schema delle classi e poi questo lo si traduca in uno schema di database. Il metodo proposto non presuppone una maggiore importanza del database rispetto alle classi, ma è stato pensato per ottenere i seguenti vantaggi \cite{[11]}:
 \begin{itemize}
 	\item il database è già presente; con l'importazione ottengo lo schema del database e genero classi in maniera automatica;
 	\item se il database è nuovo, la sua definizione dovrebbe seguire gli stessi principi della	creazione dello schema delle classi; quindi partire da un punto o dall'altro è indifferente;
@@ -167,8 +166,8 @@ Questo comportamento dell'applicazione va contro i principi dell'ingegneria del 
 \end{itemize}
 
 
-\section{Scelta e obiettivi personali}
-Sono entrato in contatto con l’azienda ospitante grazie ad un amico che mi ha messo in contatto con i responsabili. Dopo un colloquio ed una spiegazione generale delle attività svolte dall'azienda, hanno suscitato il mio interesse. L'idea di interfacciarmi con il mondo del lavoro prendendo in mano la gestione di dati sensibili e la possibilità di creare un gestionale rientra perfettamente nell'impiego da me cercato.\\
+\section{Scelta e obiettivi personali}\label{scelta e obiettivi}
+Sono entrato in contatto con l'azienda ospitante grazie ad un amico che mi ha messo in contatto con i responsabili. Dopo un colloquio ed una spiegazione generale delle attività svolte dall'azienda, hanno suscitato il mio interesse. L'idea di interfacciarmi con il mondo del lavoro prendendo in mano la gestione di dati sensibili e la possibilità di creare un gestionale rientra perfettamente nell'impiego da me cercato.\\
 Dopo aver studiato economia presso l'Istituto Tecnico Commerciale Statale P.F. Calvi ed informatica presso l'Università di Padova, entrare in una realtà lavorativa che concilia i due ambiti, mi sembra un buon completamento dei miei studi fino a questo momento.\\
 Gli obiettivi che mi sono posto di raggiungere a livello personale oltre a quelli concordati con l'azienda sono: 
 \begin{itemize}

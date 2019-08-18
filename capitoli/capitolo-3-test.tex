@@ -67,7 +67,7 @@ Quest'ultima tabella ha lo scopo di collegare i tag con il relativo articolo. Si
 
 
 \subsection{Design Pattern}
-Durante la realizzazione dell'applicazione, si è notato che, per la maggior parte delle videate, un singolo oggetto doveva occuparsi di gestire le operazioni CRUD interne alla propria videata. Solo un caso particolare ha richiesto l'uso di un design pattern: la gestione di dettaglio del singolo articolo.
+Durante la realizzazione dell'applicazione, si è notato che, per la maggior parte delle videate, un singolo oggetto doveva occuparsi di gestire le operazioni \hyperref[CRUD]{CRUD} interne alla propria videata. Solo un caso particolare ha richiesto l'uso di un design pattern: la gestione di dettaglio del singolo articolo.
 Il pattern scelto è il Facade. Tutte le informazioni partono da un articolo (record della tabella ITEM) e da questo vengono generate opportune operazioni.\\
 
 \begin{figure}[!h] 
@@ -78,7 +78,7 @@ Il pattern scelto è il Facade. Tutte le informazioni partono da un articolo (re
 \end{figure}
 
 
-Il grafico UML, generato una volta definito il design pattern da applicare, è risultato essere quello sottostante. Per realizzarlo, ho seguito la logica dell'applicazione e ho provato a sviluppare le attività di caricamento, creazione, modifica e cancellazione dei record delle diverse tabelle.
+Il grafico \hyperref[UMLl]{UML}, generato una volta definito il design pattern da applicare, è risultato essere quello sottostante. Per realizzarlo, ho seguito la logica dell'applicazione e ho provato a sviluppare le attività di caricamento, creazione, modifica e cancellazione dei record delle diverse tabelle.
 
 \begin{figure}[!h] 
 	\centering 
@@ -100,11 +100,11 @@ Per definire quale articolo carico, uso l'id dell'articolo; quindi eseguo la que
 \end{figure}
 
 \paragraph{Creazione}
-In questo caso, è necessario creare un articolo ITEM e poi prendere in esame gli ITEM\_INFO con o senza il proprio ITEM\_MEDIA. Poi, se vengono inseriti creo gli ITEM\_TAG. Tutto questo viene salvato unicamente dall'oggetto ITEM\_CATALOG permette di avviare gli eventi di save() dei vari oggetti.
+In questo caso, è necessario creare un articolo ITEM e poi prendere in esame gli ITEM\_INFO con o senza il proprio ITEM\_MEDIA. Poi, se vengono inseriti creo gli ITEM\_TAG. Tutto questo viene salvato unicamente dall'oggetto ITEM\_CATALOG permettendo di avviare gli eventi di save() dei vari oggetti.
 
 \begin{figure}[!h] 
 	\centering 
-	\includegraphics[width=0.7\columnwidth]{Caricamento} 
+	\includegraphics[width=0.7\columnwidth]{Creazione} 
 	\caption{Diagramma delle sequenze: creazione}
 	\label{DS:creazione}
 \end{figure}
@@ -112,19 +112,12 @@ In questo caso, è necessario creare un articolo ITEM e poi prendere in esame gl
 \paragraph{Modifica}
 In questo caso la modifica è uguale all'inserimento. La differenza è che nella fase di modifica dopo aver selezionato l'articolo desiderato, è caricata la videata di dettaglio con le informazioni che sarà possibile modificare a volte forzando l'update.
 
-\begin{figure}[!h] 
-	\centering 
-	\includegraphics[width=0.7\columnwidth]{Caricamento} 
-	\caption{Diagramma delle sequenze: modifica}
-	\label{DS:modifica}
-\end{figure}
-
 \paragraph{Cancellazione}
-Ultima ma non meno importante è l' operazione di cancellazione. L'eliminazione di ogni singolo record di uno specifico articolo deve avvenire senza lasciare record orfani, pertanto la cancellazione ha inizio dai figli. L'ultima operazione manda in eliminazione l'articolo (ITEM) per il quale è prevista la cancellazione logica: cambio lo XState di un campo del record da "I" (Insert) o "M"(Modified) a "D" (Deleted) ed aggiorno XUpdDatetime.\\
+Ultima ma non meno importante è l' operazione di cancellazione. Come esposto in \hyperref[DS:cancellazione]{figura \ref{DS:cancellazione}}, l'eliminazione di ogni singolo record di uno specifico articolo deve avvenire senza lasciare record orfani, pertanto la cancellazione ha inizio dai figli. L'ultima operazione manda in eliminazione l'articolo (ITEM) per il quale è prevista la cancellazione logica: cambio lo XState di un campo del record da "I" (Inserted) o "M"(Modified) a "D" (Deleted) ed aggiorno XUpdDatetime.
 
 \begin{figure}[!h] 
 	\centering 
-	\includegraphics[width=0.7\columnwidth]{Caricamento} 
+	\includegraphics[width=0.7\columnwidth]{Cancellazione} 
 	\caption{Diagramma delle sequenze: cancellazione}
 	\label{DS:cancellazione}
 \end{figure}
@@ -140,18 +133,18 @@ Rispetto alle mie aspettative di partenza, ho commesso un numero limitato di err
 
 \subsection{Documenti}
 \inde\ definisce con il termine documenti le classi java o c\# che dovranno essere generate e da cui si basano le applicazioni ideate.
-Le prime classi che ho creato sono state quelle automatiche, secondo il ragionamento del framework ORM di InDe. Ho preso le tabelle del database e implementato una classe per ciascuna. Il funzionamento di alcune delle classi è rimasto quello standard. La classe che ha richiesto un  maggior ragionamento è stata quella per la gestione del dettaglio articoli.
+Le prime classi che ho creato sono state quelle automatiche, secondo il ragionamento del framework ORM (vedi \hyperref[ORM]{Sezione \ref{ORM}}) di InDe. Ho preso le tabelle del database e implementato una classe per ciascuna. Il funzionamento di alcune delle classi è rimasto quello standard. La classe che ha richiesto un  maggior ragionamento è stata quella per la gestione del dettaglio articoli.
 La creazione automatica genera delle classi con tanti attributi quanti sono quelli presenti nelle tabelle di riferimento. Con essi sono creati anche i metodi get e set, rispettivamente dedicati a mostrare e modificare i valori di un record.
 
 A seguito dell'utilizzo dell'ORM, le classi vengono generate sulla base di un template. Tutte le classi basate su un database estendono una classe IDDocument la quale contiene ogni metodo necessario ed evento necessario da gestire. Nelle classi derivate, create a partire da una tabella, è possibile intravedere nel codice come solo i metodi ed eventi di cui si hanno la necessità sono valorizzati e ridefiniti, mentre gli altri metodi previsti dal programma sono solo dichiarati e riprendono il funzionamento della classe padre.
 
 
-%CONTINUARE CORREZIONE MARIA!!!!!
-
 \subsubsection{ITEM}
 La classe dedicata all'articolo è rimasta pressoché invariata. \'E stato creato inoltre un campo decodifica gruppi, al fine di mostrarlo a video e popolarlo solo in caso di esigenza. . Infine si è provveduto a rivedere la query da cui vengono estrapolati i dati da assegnare ad un oggetto.
 
-\begin{center}
+\begin{table}[h]
+	
+	\centering
 	\begin{tabular}{ p{3cm}|p{9,2cm} }
 		\hline
 		\textbf{Metodo e Query} & \textbf{Descrizione}\\
@@ -161,102 +154,114 @@ La classe dedicata all'articolo è rimasta pressoché invariata. \'E stato creat
 		DecodificaGruppi() & Il metodo di decodifica gruppi è stato realizzato al fine di caricare in un campo di tipo string l'insieme dei gruppi di appartenenza dell'Articolo, decodificando il codice nella descrizione corrispondente.\\
 		\hline
 		Master Query & Le master query sono le query di base che vengono lanciate per popolare gli attributi di una classe. In questo caso la modifica è finalizzata a limitare la visibilità ai soli record il cui campo XState non fosse "D", ovvero cancellato.\\
-	
+		
 	\end{tabular}
+\caption{Metodi e query della classe ITEM}
+\end{table}
 
-\end{center}
+
 
 \subsubsection{ITEM\_INFO}
 Per quanto riguarda le informazioni, mi sono soffermato a lungo sul comportamento che l'oggetto dovrebbe avere dopo la lettura e il salvataggio dei dati nel database. 
-\begin{center}
-	\begin{tabular}{ p{3cm}|p{9,2cm} }
-	%	\hline
-	%	\multicolumn{2}{|c|}{ITEM\_INFO} \\
-		\hline
-		\textbf{Metodo e Query} & \textbf{Descrizione}\\
-		\hline
-		AfterSave() & Dopo aver salvato un oggetto di tipo ITEM\_INFO nel database, viene azionato questo metodo, utilizzato per controllare se l'informazione salvata è un'immagine. In tal  caso si procede all'inserimento di alcuni valori nell'oggetto Media.\\
-		\hline
-		AfterLoad() & Come per la AfterSave(), dopo aver caricato i record verifico di che tipo è. Se si tratta di un'immagine la carico nell'oggetto Media interno alla classe.\\
-		
-	\end{tabular}
-\end{center}
+	\begin{table}[h]
+			\centering
+			\begin{tabular}{ p{3cm}|p{9,2cm} }
+			\hline
+			\textbf{Metodo e Query} & \textbf{Descrizione}\\
+			\hline
+			AfterSave() & Dopo aver salvato un oggetto di tipo ITEM\_INFO nel database, viene azionato questo metodo, utilizzato per controllare se l'informazione salvata è un'immagine. In tal  caso si procede all'inserimento di alcuni valori nell'oggetto Media.\\
+			\hline
+			AfterLoad() & Come per la AfterSave(), dopo aver caricato i record verifico di che tipo è. Se si tratta di un'immagine la carico nell'oggetto Media interno alla classe.\\
+			
+		\end{tabular}
+	\caption{Metodi e query della classe ITEM\_INFO}
+	\end{table}
 
-\subsubsection{ITEM\_CONFIG}
-La ITEM\_CONFIG è stata una delle prime classi a essere realizzata. Sulla base di questa sono gestiti alcuni eventi dell'ITEM\_INFO e dell'ITEM\_CATALOG. \'E stata studiata per contenere le configurazioni e ottenere in maniera rapida delle informazioni da altri oggetti. Per fare ciò ho creato metodi statici che effettuano query e restituiscono una specifica informazione.
-\begin{center}
-	\begin{tabular}{ p{4cm}|p{8,2cm} }
-		%	\hline
-		%	\multicolumn{2}{|c|}{ITEM\_INFO} \\
-		\hline
-		\textbf{Metodo e Query} & \textbf{Descrizione}\\
-		\hline
-		BeforeSave()		& Come per l'articolo anche in questo caso la cancellazione è stata gestita a livello logico.\\
-		\hline
-		GetFileExtension(string code)	& Metodo statico che restituisce un valore booleano in base al tipo di estensione se accettata o meno.\\
-		\hline
-		GetPath(string code) & Metodo statico che restituisce il percorso dove salvare i tipo (code) di file.\\
-		\hline
-		HasModal(string code) & Metodo che mi permette di controllare se questo tipo di ITEM\_CONFIG deve essere o meno gestito con l'uso delle modali.\\
 
-	\end{tabular}
-\end{center}
+\subsubsection{INFO\_CONFIG}
+La INFO\_CONFIG è stata una delle prime classi a essere realizzata. Sulla base di questa sono gestiti alcuni eventi dell'ITEM\_INFO e dell'ITEM\_CATALOG. \'E stata studiata per contenere le configurazioni e ottenere in maniera rapida delle informazioni da altri oggetti. Per fare ciò ho creato metodi statici che effettuano query e restituiscono una specifica informazione.
+
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{ p{4cm}|p{8,2cm} }
+			\hline
+			\textbf{Metodo e Query} & \textbf{Descrizione}\\
+			\hline
+			BeforeSave()		& Come per l'articolo anche in questo caso la cancellazione è stata gestita a livello logico.\\
+			\hline
+			GetFileExtension(string code)	& Metodo statico che restituisce un valore booleano in base al tipo di estensione se accettata o meno.\\
+			\hline
+			GetPath(string code) & Metodo statico che restituisce il percorso dove salvare i tipo (code) di file.\\
+			\hline
+			HasModal(string code) & Metodo che mi permette di controllare se questo tipo di INFO\_CONFIG deve essere o meno gestito con l'uso delle modali.\\
+	
+		\end{tabular}
+	\caption{Metodi e query della classe INFO\_CONFIG}
+	\end{table}
 
 \subsubsection{INFO\_MEDIA}
 La classe dedicata alla gestione dei media ha richiesto molto tempo rispetto al caricamento dei file nell'ITEM\_INFO. In fase di inserimento record nel database, è stato necessario ricercare un modo opportuno per salvare le immagini in una cartella dell'applicazione web con un nome univoco.
-\begin{center}
-	\begin{tabular}{ p{4,2cm}|p{8cm} }
-		\hline
-		\textbf{Metodo e Query} & \textbf{Descrizione}\\
-		\hline
-		OnEndTransaction() & Metodo che viene richiamato ogni qual volta si crea o modifica un singolo campo del database. Generalmente serve a popolare alcuni campi obbligatori ma non visibili. In questo caso è utilizzata per generare in automatico un path assoluto per permettere il caricamento dell'immagine. \\
-		\hline
-		BeforeSave()	& Prima di salvare il record, verifico se esiste già il file nella directory di destinazione. Se sì, confronto l'immagine precedente con quella appena caricata e solo se necessario salvo. Questo passaggio riduce il carico dei byte da trasferire.\\
-		\hline
-		AfterLoad()	& Carico il percorso assoluto dell'immagine e verifico se è presente una immagine in quel percorso. La assegno ad una variabile che a video verrà immediatamente esposta.\\
-		\hline
-		GetMediaPath()& Metodo che consente di ottenere il path dell'immagine.\\
-		\hline
-		ValorizzaImagePath(string TempPath)	& Metodo dedicato a creare una immagine temporanea nella cartella temporanea del programma che appena viene chiuso vengono cancellati automaticamente.\\
+
 	
-	\end{tabular}
-\end{center}
+		\begin{longtable}{ p{4,2cm}|p{8cm} }
+			\hline
+			\textbf{Metodo e Query} & \textbf{Descrizione}\\
+			\hline
+			OnEndTransaction() & Metodo che viene richiamato ogni qual volta si crea o modifica un singolo campo del database. Generalmente serve a popolare alcuni campi obbligatori ma non visibili. In questo caso è utilizzata per generare in automatico un path assoluto per permettere il caricamento dell'immagine. \\
+			\hline
+			BeforeSave()	& Prima di salvare il record, verifico se esiste già il file nella directory di destinazione. Se sì, confronto l'immagine precedente con quella appena caricata e solo se necessario salvo. Questo passaggio riduce il carico dei byte da trasferire.\\
+			\hline
+			AfterLoad()	& Carico il percorso assoluto dell'immagine e verifico se è presente una immagine in quel percorso. La assegno ad una variabile che a video verrà immediatamente esposta.\\
+			\hline
+			GetMediaPath()& Metodo che consente di ottenere il path dell'immagine.\\
+			\hline
+			ValorizzaImagePath(string TempPath)	& Metodo dedicato a creare una immagine temporanea nella cartella temporanea del programma che appena viene chiuso vengono cancellati automaticamente.\\
+	\caption{Metodi e query della classe INFO\_MEDIA}	
+		\end{longtable}
+	
+	
+
 
 \subsubsection{INFO\_SECTION e TAG}
 Le seguenti due classi hanno mantenuto la gestione automatica generata da InDe. Tuttavia, anticipando quanto richiesto in un secondo momento, esposto nella sezione \ref{altriInterveti}, la classe INFO\_SECTION ha subito un cambiamento. Il cambiamento in questione è relativo alla gestione della lingua.
 
+\newpage
+
 \subsubsection{ITEM\_TAG}
 La classe è rimasta pressoché invariata da quella auto-generata nella gestione degli eventi fatta eccezione per l'inserimento e la modifica che ha richiesto solo l'arricchimento di dati di controllo.
 
-\begin{center}
-	\begin{tabular}{ p{5cm}|p{7,2cm} }
-		%	\hline
-		%	\multicolumn{2}{|c|}{ITEM\_INFO} \\
-		\hline
-		\textbf{Metodo e Query} & \textbf{Descrizione}\\
-		\hline
-		BeforeSave& Gestisco i campi XInsTimestamp, XUpdTimestamp e XState.\\
-		\hline
-		ExistsInCollection(IDCollection coll) & Metodo pubblico che individua se un elemento è presente nella IDCollection.\\
-		
-	\end{tabular}
-\end{center}
+
+	\begin{table}[h]
+		\centering
+		\begin{tabular}{ p{5cm}|p{7,2cm} }
+			%	\hline
+			%	\multicolumn{2}{|c|}{ITEM\_INFO} \\
+			\hline
+			\textbf{Metodo e Query} & \textbf{Descrizione}\\
+			\hline
+			BeforeSave& Gestisco i campi XInsTimestamp, XUpdTimestamp e XState.\\
+			\hline
+			ExistsInCollection(IDCollection coll) & Metodo pubblico che individua se un elemento è presente nella IDCollection.\\
+			
+		\end{tabular}
+		\caption{Metodi e query della classe ITEM\_TAG}
+	\end{table}
 
 \subsubsection{ITEM\_CATALOG}
 Questa classe funge da tramite per tutte le operazioni relative al dettaglio di un prodotto. Essa non è basata su alcuna tabella. Nel caricamento delle informazioni vi sono specifiche query ideate per caricare unicamente la combinazione dei dati di un articolo. Si compone di due IDCollection una di ITEM\_INFO e una di ITEM\_TAG. La prima viene utilizzata per salvare le informazioni che vengono trasmesse, mentre la seconda viene utilizzata per salvare i tag.
 
-\begin{center}
-	\begin{tabular}{ p{3cm}|p{9,2cm} }
-		%	\hline
-		%	\multicolumn{2}{|c|}{ITEM\_INFO} \\
+	\begin{longtable}{ p{3cm}|p{9,2cm} }
 		\hline
 		\textbf{Metodo e Query} & \textbf{Descrizione}\\
 		\hline
-		BeforeSave()& Questo evento rachhiude in sè il codice relativo all'inserimento, modifica e cancellazione dei dettagli articolo. Esso acquisisce le informazioni per mezzo dalle interfacce e richiama il salvataggio dei singoli ITEM\_INFO ed ITEM\_TAG, indicandone eventuali logiche a supporto.\\
+		BeforeSave()& Questo evento racchiude in sè il codice relativo all'inserimento, modifica e cancellazione dei dettagli articolo. Esso acquisisce le informazioni per mezzo dalle interfacce e richiama il salvataggio dei singoli ITEM\_INFO ed ITEM\_TAG, indicandone eventuali logiche a supporto.\\
+		\hline
 		BeforeLoad()& L'oggetto non si basa su una tabella o una query. Esso fa riferimento a due collezioni di oggetti. Per caricare le due collezioni ho inserito dei campi obbligatori: ItemId, per riconoscere l'articolo, combinato al partitionId.  \\
+\caption{Metodi e query della classe ITEM\_CATALOG}
 		
-	\end{tabular}
-\end{center}
+	\end{longtable}
+
+
 
 
 \subsection{Videate}
@@ -284,6 +289,13 @@ Le modali sono videate di dimensioni ridotte, paragonabili ai popup, nelle quali
 Una tabella IMDB è una sorta di "contenitore" temporaneo che mantiene le sue informazioni fino al termine della sessione. Le tabelle possono presentare uno o più record, i quali fungono da filtro all'apertura di una videata. Un esempio di suo utilizzo è stato l'inserimento delle variabili ItemId e PartitionId per filtrare un particolare articolo ed entrare quindi nel dettaglio di un singolo elemento.
 Queste schermate sono state ideate al fine di passare dati alle videate sottostanti e si cancellano, alla chiusura, per non occupare memoria nella cache.
 
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=0.49\columnwidth]{App_Finale07}
+	\caption{Modale di inserimento file senza l'anteprima}
+	\label{Modale}
+\end{figure}
+
 
 \section{Verifica, validazione e collaudo}
 Le operazioni di verifica , validazione e collaudo sono risultate più semplici di quanto mi aspettassi. Per verificare il prodotto ho compilato il codice ed eseguito ogni volta l'applicazione. 
@@ -299,6 +311,7 @@ Il modulo RTC è un componente a pagamento utilizzabile solo con le licenze che 
 I primi due metodi di traduzione sono a pagamento, mentre la terza è sicuramente più economica ma richiede la conoscenza delle lingue in cui tradurre e il tempo per inserire le traduzioni.
 La componente è semplice da integrare e, se si desidera, si può acquistare anche la sorgente ed apportare le modifiche desiderate al codice.
 Lo studio effettuato ha avuto l'obiettivo di inserire il modulo in una fork del progetto.
+
  
 \section{Altri interventi}\label{altriInterveti}
 Il progetto ha subito un miglioramento ben evidente riguardante la gestione della lingua. L'applicazione web ideata deve poter creare informazioni sugli  articoli. In aggiunta, i dati inseriti devono apparire in pagine web di altre nazionalità. Per queste ragioni, mi è stato chiesto di tradurre o creare un metodo di inserimento delle stesse informazioni in qualsiasi altra lingua.
@@ -307,4 +320,17 @@ Per gestire la lingua, visto che la richiesta è nata in un secondo momento, ho 
 Introducendo questo nuovo campo, le classi lo hanno ereditato ed a questo punto ho cercato di studiare un modo per gestire le traduzioni. La soluzione è stata quella di introdurre un campo booleano nella tabella INFO\_CONFIG e un metodo statico isTranslatable(string code), i quali mi indicavano se un campo deve essere tradotto oppure no, come nel caso delle immagini.
 Per lasciare completa libertà all'utente ho deciso di inserire il campo a video nella videata dedicata alle configurazioni in modo tale che, se un utente vuole anche che le immagini cambino in seguito alla lingua è possibile farlo attraverso una check-box.
 
-Le classi modificate a seguito del campo LanguageId sono state ITEM, ITEM\_INFO, INFO\_SECTION, INFO\_CONFIG. Le modifiche hanno influito su tutti i caricamenti e i salvataggi. Nel primo caso si è aggiunta alla clausola where delle master query il languageId, mentre nel secondo si è inserito un controllo della lingua.
+Le classi modificate a seguito del campo LanguageId sono state ITEM, ITEM\_INFO, INFO\_SECTION, INFO\_CONFIG. Le modifiche hanno influito su tutti i caricamenti e i salvataggi. Nel primo caso si è aggiunta alla clausola where delle master query il LanguageId, mentre nel secondo si è inserito un controllo della lingua.
+
+\begin{figure}[!h] 
+	\centering 
+	\includegraphics[width=0.49\columnwidth]{App_Finale01}
+	\includegraphics[width=0.49\columnwidth]{App_Finale02}
+	\includegraphics[width=0.49\columnwidth]{App_Finale04}
+	\includegraphics[width=0.49\columnwidth]{App_Finale03} 
+	\includegraphics[width=0.49\columnwidth]{App_Finale05} 
+	\caption{Schermate principali dell'applicazione finale}
+	\label{App_finale}
+\end{figure}
+
+\newpage
