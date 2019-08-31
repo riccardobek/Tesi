@@ -2,7 +2,7 @@
 \textit{Il seguente capitolo è dedicato ad illustrare i risultati ottenuti durante lo stage universitario. In aggiunta, è descritta la tecnologia adottata nello sviluppo del configuratore catalogo/prodotti.}
 
 \section{\inde}
-\inde\, come indicato dalla guida all'uso, ``é un [...] sistema di sviluppo che gestisce tutti gli aspetti del ciclo di vita del software, dall'analisi all'installazione ed oltre''\footcite{[11]}.
+\inde\, come indicato dalla guida all'uso, ``é un [...] sistema di sviluppo che gestisce tutti gli aspetti del ciclo di vita del software, dall'analisi all'installazione ed oltre''\footnote[2]{\hyperref[bib11]{[11]}}.
 Questo strumento è una combinazione di più elementi: CASE, Framework ORM, RAD. Lo scopo ultimo di InDe è la creazione di Rich Internet Application compilate e tradotte sia in linguaggio Java che C\#, al fine di funzionare in qualsiasi server.
 Le applicazioni web ideate seguono la programmazione relazionare, un modo di descrivere il comportamento del software tramite la composizione di un grafo di relazioni. I collegamenti si pongono l'obiettivo di mantenere conforme sia la struttura del database sia il codice generato. Questo fa si che ad ogni cambiamento a basso livello (ad esempio un attributo di una tabella cambia da intero a stringa), la modifica si propaghi in tutto il progetto fino ad esaurirsi.
 Uno degli obiettivi della programmazione relazionale è quello di permettere ai programmatori di concentrare la propria attenzione sul prodotto finale senza doversi preoccupare degli aspetti tecnologici. La novità di questo tipo di programmazione è la gestione maggiore dei comportamenti della applicazione. Questa affermazione non esclude la programmazione tradizionale, la quale è perfettamente supportata.\\
@@ -10,7 +10,7 @@ Uno degli obiettivi della programmazione relazionale è quello di permettere ai 
 In questa sezione andremo ad analizzare la metodologia alla base dello sviluppo e le tecnologie di sui compone \inde. Infine, viene presentata una breve guida alla creazione di una applicazione web.
 
 \paragraph{RAD}\label{RAD}
-RAD è una metodologia di sviluppo software, introdotta da James Martin negli anni '80. Come indicato su Wikipedia è una ``... metodologia [che] coinvolge modelli di sviluppo iterativi, la costruzione di prototipi e l'utilizzo di strumenti CASE''\footcite{[13]}. Essa prevede la creazione di rapida di prototipi e applicazioni. Tuttavia, la scalabilità del prodotto e il tempo a disposizione sono molto ridotti. InDe si basa su questa metodologia perché permette di creare velocemente prototipi e le applicazioni finali, ma per le tecnologie adottate ha risolto gli svantaggi.
+RAD è una metodologia di sviluppo software, introdotta da James Martin negli anni '80. Come indicato su Wikipedia è una ``... metodologia [che] coinvolge modelli di sviluppo iterativi, la costruzione di prototipi e l'utilizzo di strumenti CASE''\footnote[3]{\hyperref[bib13]{[13]}}. Essa prevede la creazione di rapida di prototipi e applicazioni. Tuttavia, la scalabilità del prodotto e il tempo a disposizione sono molto ridotti. InDe si basa su questa metodologia perché permette di creare velocemente prototipi e le applicazioni finali, ma per le tecnologie adottate ha risolto gli svantaggi.
 
 
 \paragraph{CASE}\label{CASE}
@@ -39,15 +39,15 @@ InDe è un CASE integrato. I vantaggi di un case integrato (I-CASE) sono i segue
 		\item la crescita del grado di controllo sul pro­getto, ottenuta tramite una migliore pianificazione, sorveglianza e comunicazione; 
 		\item un maggior coordinamento fra i membri dello staff impegnato in un progetto.
 	\end{enumerate}
-		''\footcite{[12]}
+		''\footnote[4]{\hyperref[bib12]{[12]}}
 \end{quote}
 
 
 \paragraph{ORM}\label{ORM}
-Gli ORM (Object Relational Mapping) sono una tecnica di programmazione che unisce le tecniche OOP ai RDBMS. Questo tipo di programmazione offre tutti i servizi legati alla persistenza dei dati, ovvero la possibilità per i dati di sopravvivere all'esecuzione del programma che li ha creati. Applicando un qualsiasi framework ORM è possibile andare incontro a portabilità, riduzione delle linee di codice e inclusione in un unico modulo della logica di persistenza \cite{[14]}.
+Gli ORM (Object Relational Mapping) sono una tecnica di programmazione che unisce le tecniche OOP ai RDBMS. Questo tipo di programmazione offre tutti i servizi legati alla persistenza dei dati, ovvero la possibilità per i dati di sopravvivere all'esecuzione del programma che li ha creati. Applicando un qualsiasi framework ORM è possibile andare incontro a portabilità, riduzione delle linee di codice e inclusione in un unico modulo della logica di persistenza \hyperref[bib14]{\cite{[14]}}.
 
 \paragraph{Framework RD}
-Il Framework RD è alla base di \inde. Questa tecnologia include l'intera logica del sistema di sviluppo. Si compone di sei aree \cite{[11]}:
+Il Framework RD è alla base di \inde. Questa tecnologia include l'intera logica del sistema di sviluppo. Si compone di sei aree \hyperref[bib11]{\cite{[11]}}:
 \begin{itemize}
 	\item Area RD3, contenente il codice Javascript dedicato a renderizzare la pagina nel browser;
 	\item Area Database, al cui interno risiedono i comandi di gestione dei database supportati;
