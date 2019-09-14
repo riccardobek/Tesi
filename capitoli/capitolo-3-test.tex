@@ -2,27 +2,28 @@
 \textit{Questa capitolo parla delle attività di stage andando a descrivere il progetto nei suoi stati di avanzamento, le scelte adottate e le motivazioni che mi hanno permesso di prendere decisioni.}
 
 \section{Formazione}
-All'inizio dello stage, la prima attività che ho dovuto svolgere, è stata quella di studio delle applicazioni adottate dall'azienda. In aggiunta ho appreso i formalismi, ossia codici e abbreviazioni adottate per la realizzazione dei campi dei database. 
+All'inizio dello stage, la prima attività che ho dovuto svolgere è stata quella di studio delle applicazioni adottate dall'azienda. In aggiunta ho appreso i formalismi ossia codici e abbreviazioni adottate per la realizzazione dei campi dei database. 
 Per la formazione sull'applicazione \inde\, ho seguito sei video-corsi della durata di una/due ore l'uno. Per velocizzare l'apprendimento dell'uso dell'applicazione, il mio tutor mi ha richiesto di realizzare le applicazioni presenti nei video.
-Rispetto a quanto pianificato, l'apprendimento del programma è risultato più rapido della settimana preventivata e quindi, durante la stessa, ho potuto interfacciarmi con i Data Warehouse e lo studio di alcune Stored Procedures. 
+Rispetto a quanto pianificato, l'apprendimento del programma è risultato più rapido della settimana preventivata e quindi, durante la stessa, ho potuto interfacciarmi con i data warehouse e lo studio di alcune stored procedure. 
 Al termine della prima settimana ho iniziato lo studio dei documenti relativi al configuratore catalogo/prodotti.
 
 
 \section{Progettazione}
-La seconda settimana di stage, divisa in incontri con il cliente e lavoro presso la sede di Castelfranco, ho iniziato ad affrontare le dinamiche aziendali concentrandomi sulle attività di progetto.
+La seconda settimana di stage, divisa tra incontri con il cliente e lavoro presso la sede di Castelfranco, ho iniziato ad affrontare le dinamiche aziendali, concentrandomi sulle attività di progetto.
 
 \subsection{Database}
-Il primo punto affrontato durante il periodo di stage è stato il database. In questa fase sono stato affiancato dal tutor aziendale. Il cliente ci ha dato piena facoltà di agire, permettendoci di scegliere tra due possibili soluzioni: riutilizzare tabelle presenti nel database o crearne nuove. 
-Il cliente, che dispone di sei applicazioni ideate con InDe, nei mesi di stage ha richiesto di avviare nuovi progetti.
-Dopo un'attenta discussione con il cliente la scelta più consona è risultata essere quella di creare tabelle nuove. I nuovi componenti dovrebbero essere in futuro integrati in altre applicazioni.\\
-Per cercare di mantenere uniformità e coerenza con il resto del Data Warehouse, si è optato di non inserire vincoli di Foreign Key.
+Il primo punto affrontato durante il periodo di stage è stato il database. In questa fase sono stato affiancato dal tutor aziendale. Il cliente ci ha dato piena facoltà di agire, permettendoci di scegliere tra due possibili soluzioni: riutilizzare tabelle presenti nel database o crearne di nuove. 
+Il cliente che dispone di sei applicazioni ideate con InDe nei mesi di stage ha richiesto di avviare nuovi progetti.
+Dopo un'attenta discussione con il cliente, la scelta più consona è risultata essere quella di creare tabelle nuove. I nuovi componenti dovrebbero essere in futuro integrati in altre applicazioni.\\
+Per cercare di mantenere uniformità e coerenza con il resto del data warehouse, si è optato di non inserire vincoli di foreign key.
 Questa opzione avrebbe permesso di ottenere query più rapide ma in seguito ad alcune osservazioni, è risultato superfluo vista la velocità dei server. 
-Tuttavia, continuo a ritenere molto utile la creazione delle foreign key. In questa maniera anche se le tabelle iniziano ad avere una quantità di record sproporzionata la velocità resta soddisfacente e/o elevata. Inoltre, il problema dell'eventuale plugin dell'applicazione richiede comunque che si modifichi il codice nell'importazione della componente. 
+Tuttavia, continuo a ritenere molto utile la creazione delle foreign key. In questa maniera anche se le tabelle iniziano ad avere una quantità di record sproporzionata, la velocità resta soddisfacente e/o elevata. Inoltre, il problema dell'eventuale plugin dell'applicazione richiede comunque che si modifichi il codice nell'importazione della componente. 
 Quest'ultima scelta ha come vantaggio di estendere i progetti in maniera più rapida.
-Infine, per concludere il tema vincoli, gli unici adottati sono quelli di Primary Key.
+Infine, per concludere il tema vincoli, gli unici adottati sono quelli di primary key.
 \\
 
-La prima tabella da cui ho iniziato la progettazione è stata quella degli articoli. Quest'ultima è già presente nel data warehouse e dispone di una vista. Partendo da questi due contenitori, si è realizzata una struttura che permetta prima di creare una lista prodotti. Se l'articolo esiste è possibile arricchire le sue informazioni.\\
+La prima tabella da cui ho iniziato la progettazione è stata quella degli articoli. Quest'ultima è già presente nel data warehouse e dispone di una vista. 
+Partendo da questi due contenitori, si è realizzata una struttura che permettesse di creare una lista prodotti. Se l'articolo esiste è possibile arricchire le sue informazioni.\\
 
 Gli aspetti da tenere in considerazione sono:
 \begin{itemize}
@@ -43,11 +44,11 @@ Queste informazioni sono state definite durante la prima riunione presso la sede
 Il diagramma ER (i vincoli sono fittizi, mostrano i collegamenti nonostante l'assenza di foreign key) è stato pensato in modo tale che ogni articolo disponga di molte informazioni appartenenti alle diverse categorie esistenti.
 
 \paragraph{ITEM}
-Questo oggetto è una vista contenente importanti informazioni. La fase di inserimento prevede unicamente che un'utente possa inserire alcune informazioni. I dati gestiti nella vista sono rappresentati dai gruppi di appartenenza (ad esempio insaccati, surgelati, prodotti da forno) ed una descrizione breve dell'oggetto.
+Questa tabella è una vista contenente gli articoli. La fase di inserimento prevede unicamente che un'utente possa inserire alcune informazioni. I dati gestiti nella vista sono rappresentati dai gruppi di appartenenza (ad esempio insaccati, surgelati, prodotti da forno) ed una descrizione breve dell'oggetto.
 In questo contesto la descrizione appare due volte: una negli ITEM ed una nella ITEM\_INFO per il semplice motivo che la tabella esisteva già nel database.
 
 \paragraph{ITEM\_INFO}
-La seguente tabella raggruppa tutte le informazioni e rappresenta il punto di collegamento dell'intero progetto. In essa vengono inserite le etichette e i valori che rappresentano i punti fondamentali di questa tabella. Le etichette (label) sono la descrizione dei valori (value) che permettono ricerche in tabella più rapide (video, titolo, immagine). I valori sono quelli che in base alle altre tabelle saranno stampati a video dall'applicazione web di front-end (\hyperref[ImgFrontend]{figura \ref{ImgFrontend}}).
+La seguente tabella raggruppa tutte le informazioni e rappresenta il punto di collegamento dell'intero progetto. In essa vengono inserite le etichette e i valori che rappresentano i punti fondamentali di questa tabella. Le etichette (Label) sono la descrizione dei valori (Value) che permettono ricerche in tabella più rapide (video, titolo, immagine). I valori sono quelli che in base alle altre tabelle saranno stampati a video dall'applicazione web di front-end (\hyperref[ImgFrontend]{figura \ref{ImgFrontend}}).
 
 \paragraph{INFO\_CONFIG}
 La tabella INFO\_CONFIG è stata realizzata al fine di inserire dati in grado di limitare i tipi di record che possono essere gestiti all'interno della tabella ITEM\_INFO. Le informazioni raccolte permettono di gestire i record della tabella associata. Un esempio è dato dalla possibilità di definire le estensioni dei file.
@@ -56,7 +57,7 @@ La tabella INFO\_CONFIG è stata realizzata al fine di inserire dati in grado di
 INFO\_MEDIA è la tabella, come è comprensibile dal nome, che contiene tutte le informazioni relative ai file. Inizialmente, ho pensato di salvare il file nel database con un blob, in un secondo tempo ho convenuto che l'interrogazione di una tabella contenente molti media poteva diventare molto lenta considerando la richiesta di gestione dei video. Alla luce di queste riflessioni ho ritenuto opportuno ideare una cartella online in cui è installata l'applicazione, assegnare un GUID (nome univoco) al file e inserire nel database il percorso relativo dell'immagine.
 
 \paragraph{INFO\_SECTION}
-Le informazioni relative ad un prodotto devono essere categorizzate. INFO\_SECTION è una tabella che ha la funzione di indicare la categoria di appartenenza, così come, avviene in diversi siti e-commerce. L'obbiettivo è quello di gestire le informazioni presentandole in sezioni dinamiche. 
+Le informazioni relative ad un prodotto devono essere categorizzate. INFO\_SECTION è una tabella che ha la funzione di indicare la categoria di appartenenza, così come avviene in diversi siti e-commerce. L'obiettivo è quello di gestire le informazioni presentandole in sezioni dinamiche. 
 
 \paragraph{TAG}
 TAG è una tabella che serve ad includere ogni tipo di parole chiave permettendo così di effettuare ricerche su prodotti o gruppo di prodotti. Questa tabella è stata riutilizzata perché già presente nel database.
@@ -67,7 +68,7 @@ Quest'ultima tabella ha lo scopo di collegare i tag con il relativo articolo. Si
 
 
 \subsection{Design Pattern}
-Durante la realizzazione dell'applicazione, si è notato che, per la maggior parte delle videate, un singolo oggetto doveva occuparsi di gestire le operazioni \hyperref[CRUD]{CRUD} interne alla propria videata. Solo un caso particolare ha richiesto l'uso di un design pattern: la gestione di dettaglio del singolo articolo.
+Durante la realizzazione dell'applicazione, si è notato che per la maggior parte delle videate un singolo oggetto doveva occuparsi di gestire le operazioni \hyperref[CRUD]{CRUD} interne alla propria videata. Solo un caso particolare ha richiesto l'uso di un design pattern: la gestione di dettaglio del singolo articolo.
 Il pattern scelto è il Facade. Tutte le informazioni partono da un articolo (record della tabella ITEM) e da questo vengono generate opportune operazioni.\\
 
 \begin{figure}[!h] 
@@ -110,10 +111,10 @@ In questo caso, è necessario creare un articolo ITEM e poi prendere in esame gl
 \end{figure}
 
 \paragraph{Modifica}
-In questo caso la modifica è uguale all'inserimento. La differenza è che nella fase di modifica dopo aver selezionato l'articolo desiderato, è caricata la videata di dettaglio con le informazioni che sarà possibile modificare a volte forzando l'update.
+In questo caso la modifica è uguale all'inserimento. La differenza è che nella fase di modifica dopo aver selezionato l'articolo desiderato, è caricata la videata di dettaglio con le informazioni che sarà possibile modificare (a volte forzando l'update).
 
 \paragraph{Cancellazione}
-Ultima ma non meno importante è l' operazione di cancellazione. Come esposto in \hyperref[DS:cancellazione]{figura \ref{DS:cancellazione}}, l'eliminazione di ogni singolo record di uno specifico articolo deve avvenire senza lasciare record orfani, pertanto la cancellazione ha inizio dai figli. L'ultima operazione manda in eliminazione l'articolo (ITEM) per il quale è prevista la cancellazione logica: cambio lo XState di un campo del record da "I" (Inserted) o "M"(Modified) a "D" (Deleted) ed aggiorno XUpdDatetime.
+Ultima ma non meno importante è l'operazione di cancellazione. Come esposto in \hyperref[DS:cancellazione]{figura \ref{DS:cancellazione}}, l'eliminazione di ogni singolo record di uno specifico articolo deve avvenire senza lasciare record orfani, pertanto la cancellazione ha inizio dai figli. L'ultima operazione manda in eliminazione l'articolo (ITEM) per il quale è prevista la cancellazione logica: cambio lo XState di un campo del record da "I" (Inserted) o "M"(Modified) a "D" (Deleted) ed aggiorno XUpdDatetime.
 
 \begin{figure}[!h] 
 	\centering 
@@ -125,22 +126,22 @@ Ultima ma non meno importante è l' operazione di cancellazione. Come esposto in
 
 
 \section{Codifica}
-Dopo la fase di progettazione, è stata affrontata la codifica. Questa fase è stata differente rispetto a quanto ho sviluppato durante il corso di Programmazione ad oggetti, Programmazione concorrente e distribuita ed Ingegneria del Software. La differenza o diversità è stata determinata dall'utilizzo di \inde.\\
+Dopo la fase di progettazione, è stata affrontata la codifica. Questa fase è stata differente rispetto a quanto ho sviluppato durante i corsi di Programmazione ad oggetti, Programmazione concorrente e distribuita ed Ingegneria del Software. La differenza o diversità è stata determinata dall'utilizzo di \inde.\\
 Progettare classi e videate con questo tipo di software, ha cambiato il mio modo di implementare e testare. In precedenza il mio lavoro era organizzato in questo modo: creazione di una scaletta, implementazione e passo per passo effettuare dei test di unità basati su codice scritto (ad esempio Java associato a JUnit).\\
 Diversamente in questo caso, ho saltato i test di unità, per passare immediatamente a test di sistema. Di conseguenza ho creato classi, metodi ed eventi cercando quanto più possibile di seguire una logica rigorosamente commentata. 
-Rispetto alle mie aspettative di partenza, ho commesso un numero limitato di errori. Il codice generato si basa su template ben controllato e già testato dalla casa produttrice e con il debugger incluso, è stato possibile risolvere ogni errore commesso in tempi brevi  .
+Rispetto alle mie aspettative di partenza, ho commesso un numero limitato di errori. Il codice generato si basa su template ben controllato e già testato dalla casa produttrice e con il debugger incluso, è stato possibile risolvere ogni errore commesso in tempi brevi.
 
 
 \subsection{Documenti}
 \inde\ definisce con il termine documenti le classi java o c\# che dovranno essere generate e da cui si basano le applicazioni ideate.
-Le prime classi che ho creato sono state quelle automatiche, secondo il ragionamento del framework ORM (si veda \hyperref[ORM]{Sezione \ref{ORM}}) di InDe. Ho preso le tabelle del database e implementato una classe per ciascuna. Il funzionamento di alcune delle classi è rimasto quello standard. La classe che ha richiesto un  maggior ragionamento è stata quella per la gestione del dettaglio articoli.
+Le prime classi che ho creato sono state quelle automatiche, secondo il ragionamento del framework ORM (si veda \hyperref[ORM]{Sezione \ref{ORM}}) di InDe. Ho preso le tabelle del database e implementato una classe per ciascuna. Il funzionamento di alcune delle classi è rimasto quello standard. La classe che ha richiesto un maggior ragionamento è stata quella per la gestione del dettaglio articoli.
 La creazione automatica genera delle classi con tanti attributi quanti sono quelli presenti nelle tabelle di riferimento. Con essi sono creati anche i metodi get e set, rispettivamente dedicati a mostrare e modificare i valori di un record.
 
 A seguito dell'utilizzo dell'ORM, le classi vengono generate sulla base di un template. Tutte le classi basate su un database estendono una classe IDDocument la quale contiene ogni metodo necessario ed evento necessario da gestire. Nelle classi derivate, create a partire da una tabella, è possibile intravedere nel codice come solo i metodi ed eventi di cui si hanno la necessità sono valorizzati e ridefiniti, mentre gli altri metodi previsti dal programma sono solo dichiarati e riprendono il funzionamento della classe padre.
 
 
 \subsubsection{ITEM}
-La classe dedicata all'articolo è rimasta pressoché invariata. \'E stato creato inoltre un campo decodifica gruppi, al fine di mostrarlo a video e popolarlo solo in caso di esigenza. . Infine si è provveduto a rivedere la query da cui vengono estrapolati i dati da assegnare ad un oggetto.
+La classe dedicata all'articolo è rimasta pressoché invariata. \'E stato creato inoltre un campo decodifica gruppi, al fine di mostrarlo a video e popolarlo solo in caso di esigenza. Infine si è provveduto a rivedere la query da cui vengono estrapolati i dati da assegnare ad un oggetto.
 
 \begin{table}[h]
 	
@@ -265,12 +266,12 @@ Questa classe funge da tramite per tutte le operazioni relative al dettaglio di 
 
 
 \subsection{Videate}
-La creazione delle interfacce utente, chiamate anche "Videate" su Instant Developer, ha richiesto un lavoro di "drug and drop". Realizzare l' aspetto grafico è stato molto semplice e rapido, mentre l'aspetto "responsive" che ha richiesto una combinazione tra le funzionalità di InDe e l'importazione di un foglio di stile (Cascading Style Sheet) customizzato.
-I metodi gestiti nelle videate riguardano gli eventi di load, refresh, update (che comprende inserimento, modifica e cancellazione dei record).\\
+La creazione delle interfacce utente, chiamate anche "Videate" su Instant Developer, ha richiesto un lavoro di d\&d. Realizzare l'aspetto grafico è stato molto semplice e rapido, mentre l'aspetto "responsive" che ha richiesto una combinazione tra le funzionalità di InDe e l'importazione di un foglio di stile (Cascading Style Sheet) customizzato.
+I metodi gestiti nelle videate riguardano gli eventi di load, refresh, update (che comprende a sua volta inserimento, modifica e cancellazione dei record).\\
 
 Tra tutte le videate realizzate, quelle più complesse sono state le interfacce dedicate al caricamento immagini. La loro realizzazione ha richiesto la gestione di alcuni comportamenti a livello di applicazione generale.
-La gestione del file ha comportato continue revisioni. Il programma prevede che questi vengano caricati in una cartella temporanea. Tuttavia, in base a quanto definito in fase progettazione, una immagine viene salvata in una cartella ad essa dedicata con un nome univoco nella quale sono contenuti anche gli altri tipi di file. 
-Prima di arrivare ad una soluzione definitiva, ho dovuto realizzare dei progetti di test. Da ultimo ho combinato insieme alcuni metodi dell'applicazione. In particolare ho unito il tempPath, metodo che restituisce il una stringa con il percorso alla cartella temporanea e il replace, metodo utilizzato per il rimpiazzo di stringhe. Infine, con un makeDirectory, altro metodo di InDe, ho creato il nuovo percorso dove salvare i file. 
+La gestione del file ha comportato continue revisioni. Il programma prevede che questi vengano caricati in una cartella temporanea. Tuttavia, in base a quanto definito in fase progettazione, un'immagine viene salvata in una cartella ad essa dedicata con un nome univoco nella quale sono contenuti anche gli altri tipi di file. 
+Prima di arrivare a una soluzione definitiva, ho dovuto realizzare dei progetti di test. Da ultimo ho combinato insieme alcuni metodi dell'applicazione. In particolare ho unito il tempPath, metodo che restituisce il una stringa con il percorso alla cartella temporanea e il replace, metodo utilizzato per il rimpiazzo di stringhe. Infine, con un makeDirectory, altro metodo di InDe, ho creato il nuovo percorso dove salvare i file. 
 L'insieme di questi metodi ha permesso di creare un nuovo percorso di salvataggio dei file. Per caricarli effettivamente ho optato per una doppia gestione: trascinamento dell'immagine nell'applicazione oppure click nella sezione di drop-down e importazione standard di documenti dal computer alla pagina web. 
 Infine, per il caricamento ho optato per l'utilizzo della cache in modo tale da caricare i media di un elemento una sola volta per l'intera durata della sessione.\\
 
@@ -286,8 +287,8 @@ Rispetto a quanto ambivo, la gestione del onCommand(), è risultata diversa per 
 
 \subsubsection{Modali}
 Le modali sono videate di dimensioni ridotte, paragonabili ai popup, nelle quali ho dovuto gestire il caricamento di diverse informazioni. Per evitare di adottare una classe, anche per le modali ho adottato le tabelle IMDB. 
-Una tabella IMDB è una sorta di "contenitore" temporaneo che mantiene le sue informazioni fino al termine della sessione. Le tabelle possono presentare uno o più record, i quali fungono da filtro all'apertura di una videata. Un esempio di suo utilizzo è stato l'inserimento delle variabili ItemId e PartitionId per filtrare un particolare articolo ed entrare quindi nel dettaglio di un singolo elemento.
-Queste schermate sono state ideate al fine di passare dati alle videate sottostanti e si cancellano, alla chiusura, per non occupare memoria nella cache.
+Una tabella IMDB è una sorta di "contenitore" temporaneo che mantiene le sue informazioni fino al termine della sessione. Le tabelle possono presentare uno o più record, i quali fungono da filtro all'apertura di una videata. Un esempio relativo al suo utilizzo è stato l'inserimento delle variabili ItemId e PartitionId per filtrare un particolare articolo ed entrare quindi nel dettaglio di un singolo elemento.
+Queste schermate sono state ideate al fine di passare dati alle videate sottostanti e si cancellano alla chiusura, per non occupare memoria nella cache.
 
 \begin{figure}[!h] 
 	\centering 
@@ -298,26 +299,26 @@ Queste schermate sono state ideate al fine di passare dati alle videate sottosta
 
 
 \section{Verifica, validazione e collaudo}
-Le operazioni di verifica , validazione e collaudo sono risultate più semplici di quanto mi aspettassi. Per verificare il prodotto ho compilato il codice ed eseguito ogni volta l'applicazione. 
-Appena eseguito il programma, ho seguito una scaletta pre-impostata con tutte le operazioni implementate e possibili. All'inizio ho commesso l'errore di creare molte funzionalità e poi testarle. Dopo 3 settimane ho concluso che è molto più vantaggioso concentrarsi su una singola funzionalità, farla funzionare correttamente e poi passare alla successiva.
-Alla fine di ogni schermata, ho effettuato dei test generali sulle funzionalità e dopo un collaudo da parte del mio tutor, la videata  si considerava validata salvo eventuali errori.  
-Il collaudo finale è stato gestito in maniera completamente diversa. Mentre la verifica e validazione sono state interne all'azienda e seguivano le linee guida indicate dai documenti di progetto, il collaudo è stato un rilascio anticipato al cliente. Quest'ultimo ha rieseguito i test da noi effettuati e ci ha rilasciato una lista delle nuove specifiche, miglioramenti o bug da risolvere. 
-In seguito al fatto che, l'azienda segue la metodologia agile, i collaudi da parte del cliente sono stati più di uno. Grazie alla collaborazione tra fornitore e cliente, il progetto è stato portato a termine in maniera ottimale, permettendo di esplorare dei possibili miglioramenti.
+Le operazioni di verifica, validazione e collaudo sono risultate più semplici di quanto mi aspettassi. Per verificare il prodotto, ho compilato il codice ed eseguito di volta in volta l'applicazione. 
+Appena eseguito il programma, ho seguito una scaletta pre-impostata con tutte le operazioni implementate. All'inizio ho commesso l'errore di creare molte funzionalità per poi testarle. Dopo tre settimane ho concluso che è molto più vantaggioso concentrarsi su una singola funzionalità, farla funzionare correttamente e poi passare alla successiva.
+Alla fine di ogni schermata, ho effettuato dei test generali sulle funzionalità e dopo un collaudo da parte del mio tutor, la videata  si considerava validata (salvo eventuali errori).  
+Il collaudo finale è stato gestito in maniera completamente diversa. Mentre la verifica e validazione sono state interne all'azienda e seguivano le linee guida indicate dai documenti di progetto, il collaudo è stato un rilascio anticipato al cliente. Quest'ultimo ha rieseguito i test da noi effettuati e ci ha rilasciato una lista delle nuove specifiche, miglioramenti o eventuali bug da risolvere. 
+Considerato che l'azienda segue la metodologia agile, i collaudi da parte del cliente sono stati più di uno. Grazie alla collaborazione tra fornitore e cliente, il progetto è stato portato a termine in maniera ottimale, venendo a conoscenza anche possibili miglioramenti.
 Questi ultimi verranno esposti e illustrati nella sezione a seguire.
 
 \section{Modulo RTC}
 Il modulo RTC è un aspetto del progetto che non ho potuto approfondire a sufficienza. Nonostante ciò, ho potuto verificare che gli ideatori di \inde\ hanno previsto che ci potesse essere l'esigenza di creare una applicazione in lingua.
 Il modulo RTC è un componente a pagamento utilizzabile solo con le licenze che lo includono. In questo modulo ci sono tre modalità di generazione delle traduzioni: google API key, Microsoft App Key e inserimento manuale. 
 I primi due metodi di traduzione sono a pagamento, mentre la terza è sicuramente più economica ma richiede la conoscenza delle lingue in cui tradurre e il tempo per inserire le traduzioni.
-La componente è semplice da integrare e, se si desidera, si può acquistare anche la sorgente ed apportare le modifiche desiderate al codice.
+La componente è semplice da integrare e se si desidera, si può acquistare anche la sorgente apportando le modifiche desiderate al codice.
 Lo studio effettuato ha avuto l'obiettivo di inserire il modulo in una fork del progetto.
 
  
 \section{Altri interventi}\label{altriInterveti}
-Il progetto ha subito un miglioramento ben evidente riguardante la gestione della lingua. L'applicazione web ideata deve poter creare informazioni sugli  articoli. In aggiunta, i dati inseriti devono apparire in pagine web di altre nazionalità. Per queste ragioni, mi è stato chiesto di tradurre o creare un metodo di inserimento delle stesse informazioni in qualsiasi altra lingua.
+Il progetto ha subito un miglioramento ben evidente riguardante la gestione della lingua. L'applicazione web ideata deve poter creare informazioni sugli articoli. In aggiunta, i dati inseriti devono apparire in pagine web di altre nazionalità. Per queste ragioni, mi è stato chiesto di tradurre o creare un metodo di inserimento delle stesse informazioni in qualsiasi altra lingua.
 
 Per gestire la lingua, visto che la richiesta è nata in un secondo momento, ho deciso di inserire nelle tabelle un nuovo campo LanguageId popolato con l'identificativo della lingua individuabile in una tabella del database.
-Introducendo questo nuovo campo, le classi lo hanno ereditato ed a questo punto ho cercato di studiare un modo per gestire le traduzioni. La soluzione è stata quella di introdurre un campo booleano nella tabella INFO\_CONFIG e un metodo statico isTranslatable(string code), i quali mi indicavano se un campo deve essere tradotto oppure no, come nel caso delle immagini.
+Introducendo questo nuovo campo, le classi lo hanno ereditato e a questo punto ho cercato di studiare un modo per gestire le traduzioni. La soluzione è stata quella di introdurre un campo booleano nella tabella INFO\_CONFIG e un metodo statico isTranslatable(string code), i quali mi indicavano se un campo deve essere tradotto oppure no, come nel caso delle immagini.
 Per lasciare completa libertà all'utente ho deciso di inserire il campo a video nella videata dedicata alle configurazioni in modo tale che, se un utente vuole anche che le immagini cambino in seguito alla lingua è possibile farlo attraverso una check-box.
 
 Le classi modificate a seguito del campo LanguageId sono state ITEM, ITEM\_INFO, INFO\_SECTION, INFO\_CONFIG. Le modifiche hanno influito su tutti i caricamenti e i salvataggi. Nel primo caso si è aggiunta alla clausola where delle master query il LanguageId, mentre nel secondo si è inserito un controllo della lingua.
